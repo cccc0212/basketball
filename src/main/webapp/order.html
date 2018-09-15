@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="css/main.css" rel="stylesheet" media="screen">
+<link href="css/goods.css" rel="stylesheet" media="screen">
+<link href="css/font-awesome.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<style type="text/css">
+	.base_info{
+		color: #736e6e;
+    	margin-left: 10%;
+    	font-size: 20px !important;
+    	margin-right: 10%;
+    	border-bottom: 1px solid #736e6e;
+	}
+	.main_info{
+		padding-left:10%;
+		padding-top:20px;
+		padding-bottom:20px;
+		overflow:hidden;
+		color:#736e6e;
+	}
+	.main_info div{
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+	#update_username{
+		display:none;
+		height: 20px;
+		width:100px;
+		color: #736e6e;
+	}
+	.sub_info{
+	    width: 40px;
+	    height: 20px;
+	    padding-top: 0px !important;
+	    padding-bottom: 0px !important;
+	    margin-left: 10%;
+	    padding-left: 5px;
+	    padding-right: 5px;
+	    text-decoration: none;
+	    background-color: #fbeed5;
+	}
+	.address_info{
+		color: #736e6e;
+    	margin-left: 10%;
+    	font-size: 20px !important;
+    	margin-right: 10%;
+    	margin-top:5px;
+	}
+	.address_info_1{
+		padding-left:10px;
+		padding-top:10px;
+		padding-bottom:10px;
+		border:1px solid #736e6e;
+		overflow:hidden;
+		margin-top:5px;
+	}
+	.label{
+	    font-weight: 500 !important;
+		float: left;
+    	width: 20%;
+    	color: #999;
+    	text-align: right;
+	}
+	.label_right{
+		float: left;
+    	width: 80%;
+    	color: #666;
+    	text-align: left;
+	}
+	.order_title div{
+		padding:10px 0 0;
+		font-size: 12px;
+    	color: #666;
+    	font-family: '\5b8b\4f53';
+    	line-height: 18px;
+	}
+	.order_title{
+		width:60%;
+		left:20%;
+		margin-left:-15px;
+		position: relative;
+		margin-bottom:20px;
+		padding:10px 20px 20px;
+		background-color:#ffffff;
+		font-weight:700;
+	
+	}
+	.mt{
+	    overflow: hidden;
+		padding: 10px 0;
+		display: block;
+	}
+	.mt ul{
+		list-style: none;
+		float: left;
+		margin:0px;
+	}
+	.mt ul li{
+		float:left;
+	}
+	.mt ul li a{
+		text-decoration: none;
+		padding-right: 10px;
+		padding-left: 10px;
+		padding-bottom: 0;
+    	color: #333;
+    	font-weight: 400;
+   		cursor: pointer;
+	}
+	.ul-bottom{
+		border-bottom:1px solid red;
+	}
+	.mt ul li a:hover{
+		color:#e4393c;
+	}
+	.mc{
+		overflow: visible;
+	}
+	.mc table{
+		width:100%;
+		border-collapse: collapse;
+		border-color: grey;
+	}
+	.mc table thead tr th{
+	    height: 32px;
+	    line-height: 32px;
+	    text-align: center;
+	    background: #f5f5f5;
+	    color: #666;
+	    font-weight: 400;
+	} 
+	.sep-row {
+    	height: 5px;
+	}
+	.split-row{
+	    position: relative;
+	    top: 1px;
+	    padding: 11px 0;
+	    height: 18px;
+	    margin: 1px 0 0;
+	    border-bottom: 1px solid #e5e5e5;
+	}
+	.datetime{
+	    margin-right: 30px;
+    	font-family: verdana;
+	}
+	.number{
+	    width: 226px;
+    	font-family: verdana;
+    	margin-right:20px;
+	}
+	.tr-th{
+	    background: #f5f5f5;
+	    height: 31px;
+	    line-height: 31px;
+	    color: #aaa;
+	    overflow: hidden;
+	}
+	.tr-th span {
+	    height: 18px;
+	    line-height: 18px;
+	    padding: 2px 0 0;
+
+	}
+	.split-row-1{
+		margin: 1px 0 0;
+    	border-bottom: 1px solid #e5e5e5;
+    	padding:0 14px;
+	}
+	.order-consignee{
+		margin-right:20px;
+	}
+	.order-price{
+		float:right;
+		margin-right:5px;
+	}
+	.p-name{
+		font-size:12px;
+	    height: 36px;
+    	line-height: 18px;
+    	overflow: hidden;
+    	color: #333;
+    	text-align: left !important;
+    	width:60%;
+    	margin-left:1px;
+	}
+	.tr-bd-1{
+		overflow: hidden;
+		width:80%;float:left
+	}
+	.tr-bd-1 img{
+		 width:20%;
+		 float:left;
+	}
+	.tr-bd-2{
+		width:20%;
+		float:left;
+		text-align:center;
+		color:#aaa;
+	}
+	.items-1{
+		display:block;
+		margin-bottom: 10px;
+	}
+	.items-1 a{
+		cursor:pointer ;
+		color:#666;
+		text-decoration: none;
+	}
+	.items-1 a:hover{
+		color:#e4393c;
+	}
+	td{
+		border: 1px solid #e5e5e5;
+	}
+</style>
+<script type="text/javascript">
+
+
+</script>
+
+</head>
+<body>
+<div class="header">
+	<div class="header-bg"></div>
+	<div class="header-wrap">
+		<div class="header-main">
+			<div class="header-logo">
+				<a href="http://china.CBA.com/" class="link-china"><img src="images/cba-logo_01.png" style="height: 80px;"></a>
+			</div>
+		</div>
+
+		<div class="nav index">
+			<div class="nav-wrap">
+				<ul>
+					<li class="nav-tab nav-index"><a href="main.html" class="no-arrow">首页</a></li>
+					<li id = "team" class="nav-tab nav-teams">
+						<a href="main.html">球队 <span class="glyphicon glyphicon-chevron-down"></span></a>
+						<div class="nav-team">
+							<ul style="padding-left: 0px;">
+								<li class="team-list">
+									<a href="club.html?id=1001" target="_blank" class="label-hornets"><img src="../CBA/images/clubs/1001.png" class="img-logo">北京首钢</a>
+									<a href="club.html?id=1002" target="_blank" class="label-cavaliers"><img src="../CBA/images/clubs/1002.jpg"  class="img-logo">辽宁本钢</a>
+									<a href="club.html?id=1003" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1003.png"  class="img-logo">广东东莞银行</a>
+									<a href="club.html?id=1004" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1004.jpg"  class="img-logo">新疆喀什古城</a>
+									<a href="club.html?id=1005" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1005.jpg"  class="img-logo">深圳马可波罗</a>
+								</li>
+								<li class="team-list gray" style="background-color:#f5f5f5;">
+									<a href="club.html?id=1006" target="_blank" class="label-hawks"><img src="../CBA/images/clubs/1006.jpg" class="img-logo">浙江广厦控股</a>
+									<a href="club.html?id=1007" target="_blank" class="label-bulls"><img src="../CBA/images/clubs/1007.jpg" class="img-logo">天津滨海云商</a>
+									<a href="club.html?id=1008" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1008.jpg" class="img-logo">上海哔哩哔哩</a>
+									<a href="club.html?id=1009" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1009.jpg" class="img-logo">山东高速</a>
+									<a href="club.html?id=1010" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1010.png" class="img-logo">福建浔兴SBS</a>
+								</li>
+								<li class="team-list">
+									<a href="club.html?id=1011" target="_blank" class="label-wizards"><img src="../CBA/images/clubs/1011.png" class="img-logo">南京同曦</a>
+									<a href="club.html?id=1012" target="_blank" class="label-pistons"><img src="../CBA/images/clubs/1012.jpg" class="img-logo">四川品胜</a>
+									<a href="club.html?id=1013" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1013.jpg" class="img-logo">浙江稠州银行</a>
+									<a href="club.html?id=1014" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1014.jpg" class="img-logo">九台农商银行</a>
+									<a href="club.html?id=1015" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1015.png" class="img-logo">广州证券</a>
+								</li>
+								<li class="team-list gray" style="background-color:#f5f5f5;">
+									<a href="club.html?id=1016" target="_blank" class="label-magic"><img src="../CBA/images/clubs/1016.png" class="img-logo">山西汾酒股份</a>
+									<a href="club.html?id=1017" target="_blank" class="label-pacers"><img src="../CBA/images/clubs/1017.png" class="img-logo">八一双鹿电池</a>
+									<a href="club.html?id=1018" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1018.jpg" class="img-logo">青岛国信双星</a>
+									<a href="club.html?id=1019" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1019.jpg" class="img-logo">江苏肯帝亚</a>
+									<a href="club.html?id=1020" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1020.jpg" class="img-logo">北京农商银行</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-tab nav-players"><a href="player.html">球员</a></li>
+					<li class="nav-tab nav-schedule"><a href="schedule.html">赛程</a></li>
+					<li class="nav-tab nav-schedule"><a href="main.html">商城</a></li>
+				</ul>
+			</div>
+			<div class="nav-side">
+				<div class="side-cart" onclick="showCart()"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+		        <div class="side-user" id="user-face">
+		            <div class="user-head"><img src="images/user.png" id="user-face"> <div class="username"></div></div>
+		            <ul class="user-menu">
+		                <li class="user-info" align="center">您好~请您登录</li>
+		                <li class="user-login"><button type="button" class="btn btn-primary" style="width:100%;padding: 0px;" onclick="window.location.href='userLogin.html'">登录</button></li>
+		            </ul>
+
+		        </div>
+		    </div>
+
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="section">
+		<div class="order_title" ><div  >我的订单</div></div>
+		<div class="row" style="padding:10px 20px 20px">
+			<div class="mt">
+				<ul>
+					<li class="ul-bottom"><a href="javascript:void(0)" onclick="giveMoney(this)" state=''>全部订单</a></li>
+					<li><a href="javascript:void(0)" onclick="giveMoney(this)" state="已下单">待付款</a></li>
+					<li><a href="javascript:void(0)" onclick="giveMoney(this)" state="待发货">待发货</a></li>
+					<li><a href="javascript:void(0)" onclick="giveMoney(this)" state="已发货">待收货</a></li>
+					<li><a href="javascript:void(0)" onclick="giveMoney(this)" state="已取消">已取消</a></li>
+				</ul>
+			</div>
+			<div class="mc">
+				<table id="all_orders">
+					
+
+				</table>
+			</div>
+			<div id="pageElem" align="center" style="margin-top:20px;">
+				<div  id="withTotal" class="page">
+				</div>
+<!-- 	
+					<a tabindex="0" id="pc_first" class="btn btn-default" href="javascript:first()">首页</a> 
+					<a tabindex="0"id="pc_prev" class="btn btn-default" href="javascript:prev()">上一页</a>
+					<a tabindex="0" id="pc_next" class="btn btn-default" href="javascript:next()">下一页</a>
+					<a tabindex="0" id="pc_last" class="btn btn-default" href="javascript:last()">尾页</a> -->
+					<nav aria-label='Page navigation'>
+						<ul style='margin:0' class='pagination'>
+						</ul>
+					</nav>
+					
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="footer">
+
+
+</div>
+<script type="text/javascript">
+
+	$("#team").hover(
+			function(){$(this).find("div").show();},function(){$(this).find("div").hide();}
+		);
+	$("#user-face").hover(
+			function(){$(this).find("ul").show();},function(){$(this).find("ul").hide();}
+		);
+	window.onload=function(){
+		var state='';
+		$.ajax({
+			type:'post',
+			url:'userName.action',
+			dataType:'json',
+			success:function(data){
+					var user = eval(data);  
+					if(user!=null){
+						showUser(user);
+					}
+				}
+		});
+		$.ajax({
+			type:'post',
+			url:'getAllOrder.action',
+			dataType:'json',
+			date:{state:state},
+			success:function(data){
+					var c = eval(data);  
+					if(c!=null){
+						console.log(c);
+						/* showOrders(orders) */
+ 						showOrders(c); 
+					}
+				}
+		});
+	}
+	
+
+	function showUser(user){
+		$(".username").html(user.username);
+		$(".user-menu").empty();
+		var html="<li class='user-info' align='center'><a href='info.html'>个人信息</a></li><li class='user-info' align='center'><a href='order.html'>订单信息</a></li><li class='user-info' align='center'><a href='userLogin.html'>退出</a></li>"
+		$(".user-menu").append(html);
+		var html="<div id='copyright-wrap'><div id='copyright-content'><div class='copyright-content'><p><em>&copy;</em>2018年著作权 CBA 中国所有权。</p><p><a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>上除去<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>中所特别提及的部分之外，其它任何内容都不得以任何形式被复制、再传播，或篡改。</p><p>进入<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>后，即表示阁下同意遵守<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>的<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047968.htm'>隐私政策</a>和<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>。</p><p>有任何的建议和意见，都欢迎联络我们：<a href='mailto:CBAChinaInfo@CBA.com'>CBAChinaInfo@CBA.com</a></p><p>有关CBA商品授权合作事宜，敬请联系:<a href='mailto:GMGChinaBusinessInquiry@CBA.com'>GMGChinaBusinessInquiry@CBA.com</a></p></div></div></div>"
+		$(".footer").append(html);
+	}
+	function showCart(){
+	 	$.ajax({
+			type:'post',
+			url:'userNameExist.action',
+			dataType:'json',
+			success:function(data){
+					console.log(1); 
+					if(data==1)
+						window.location.href="goodsCart.html";
+					else
+						window.location.href="userLogin.html";
+				}
+		});
+	}
+	function showOrders(c){
+		$("#all_orders").empty();
+		var ss="yyyy-MM-dd hh:mm:ss";
+		var orders = c.list;
+
+		var str = "<thead><tr><th style='width:50%;'>订单详情</th><th style='width:20%;'>收货人</th><th style='width:10%;'>金额</th><th style='width:10%;'>状态</th><th style='width:10%;'>操作</th></tr></thead>";
+		
+		for(var i=0;i<orders.length;i++){
+			str += "<tbody><tr class='sep-row'><td colspan='5' style='border:0 !important;'></td></tr><tr class='tr-th'><td colspan='5'><div class='split-row-1'><span class='datetime'>"
+						+new Date(orders[i].createTime).Format(ss)+"</span><span class='number'>订单号：<span style='color:#333;'>"
+						+orders[i].orderId+"</span></span></div></td></tr></tbody><tbody>";
+			for(var j=0;j<orders[i].list.length;j++){
+				if(j==0){
+					str += "<tr class='tr-bd'><td><div class='tr-bd-1' ><a href='goods.html?id="+orders[i].list[j].id+"' style='color: #14171a;text-decoration: none;'><img style='' alt='' src='../CBA/"
+						+orders[i].list[j].img+"'><span class='p-name'>"
+						+orders[i].list[j].name+"</span></a></div><div class='tr-bd-2' ><span>x"
+						+orders[i].list[j].buyNum+"</span></div></td><td rowspan='"
+						+orders[i].list.length+"'><div style='text-align:center'><span>"
+						+orders[i].name+"</span></div></td><td rowspan='"
+						+orders[i].list.length+"'><div style='text-align:center'><span><i class='fa fa-jpy' aria-hidden='true'></i>"
+						+orders[i].totalPrice+"</span></div></td><td rowspan='"
+						+orders[i].list.length+"'><div style='text-align:center'><span>"
+						+orders[i].state+"</span></div></td><td rowspan='"
+						+orders[i].list.length+"'><div style='text-align:center'>";
+					if(orders[i].state=="已下单")
+						str += "<span class='items-1'><a href='pay.html?orderId="+orders[i].orderId+"'>付款</a></span><span class='items-1'><a href='javascript:void(0)' onclick='cancelGoods(this)'>取消订单</a></span>"
+					if(orders[i].state=="已发货")
+						str += "<span class='items-1'><a href='javascript:void(0)' onclick='confirmGoods(this)'>确认收货</a></span>";
+					str += "<span class='items-1'><a href='orderDetail.html?orderId="+orders[i].orderId+"'>订单详情</a></span></div></td></tr>";
+				}else{
+					str += "<tr class='tr-bd'><td><div class='tr-bd-1' ><img style='' alt='' src='../CBA/"
+						+orders[i].list[j].img+"'><span class='p-name'>"
+						+orders[i].list[j].name+"</span></div><div class='tr-bd-2' ><span>x"
+						+orders[i].list[j].buyNum+"</span></div></td>";
+				}
+				
+			}
+		}
+		$("#all_orders").append(str);
+		$(".pagination").empty();
+		$("#withTotal").empty(); 
+		if(c.pages>1){
+
+			var str = "共<div style='display: inline' id='pc_totalCount'>"+c.total+"</div>条，每页<div style='display: inline' id='pc_eachCount'>"+c.pageSize+"</div>条，第<div style='display: inline' id='pc_currentPage'>"+c.pageNum+"</div>/<div style='display: inline' id='pc_totalPage'>"+c.pages+"</div>页";
+			$("#withTotal").append(str);
+
+
+			
+			var page="<li><a id='prev' href='javascript:prev()' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>"
+			if(c.pages<=7){
+				for(var i=1;i<=c.pages;i++){
+					if(i==c.pageNum)
+						page+="<li class='active'><a href='javascript:page("+i+")'>"+i+"</a></li>";
+					else
+						page+="<li><a href='javascript:page("+i+")'>"+i+"</a></li>";
+				}
+			}
+			else{
+				if(c.pageNum<5){
+					for(var i=1;i<=6;i++){
+						if(i==c.pageNum)
+							page+="<li class='active'><a href='javascript:page("+i+")'>"+i+"</a></li>";
+						else
+							page+="<li><a href='javascript:page("+i+")'>"+i+"</a></li>";
+					}
+					page+="<li><span aria-hidden='true'>...</span></li><li><a href='javascript:page("+c.pages+")'>"+c.pages+"</a></li>";
+					
+				}
+				else{
+					page+="<li><a href='javascript:page(1)'>1</a></li><li><span aria-hidden='true'>...</span></li>";
+					if(c.pages-c.pageNum<=3){
+						console.log(c.pages);
+						console.log(c.pageNum);
+	 					for(var i=c.pages-5;i<=c.pages;i++){
+	 						if(i==c.pageNum)
+	 							page+="<li class='active'><a href='javascript:page("+i+")'>"+i+"</a></li>";
+	 						else
+	 							page+="<li><a href='javascript:page("+i+")'>"+i+"</a></li>";
+						} 
+					}
+					else{
+	 					for(var i=c.pageNum-2;i<=c.pageNum+2;i++){
+	 						if(i==c.pageNum)
+	 							page+="<li class='active'><a href='javascript:page("+i+")'>"+i+"</a></li>";
+	 						else
+	 							page+="<li><a href='javascript:page("+i+")'>"+i+"</a></li>";
+						}
+						page+="<li><span aria-hidden='true'>...</span></li><li><a href='javascript:page("+c.pages+")'>"+c.pages+"</a></li>"; 
+					}
+				}
+	
+			}
+			
+			
+			
+			page+="<li><a id='next' href='javascript:next()' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>"
+			$(".pagination").append(page);
+			
+			if(c.pageNum<2)
+				$("#prev").attr("href","javascript:void(0);");
+			else
+				$("#prev").attr("href","javascript:prev()");
+			if(c.isLastPage)
+				$("#next").attr("href","javascript:void(0);");
+			else
+				$("#next").attr("href","javascript:next()");
+		}
+		var html="<div id='copyright-wrap'><div id='copyright-content'><div class='copyright-content'><p><em>&copy;</em>2018年著作权 CBA 中国所有权。</p><p><a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>上除去<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>中所特别提及的部分之外，其它任何内容都不得以任何形式被复制、再传播，或篡改。</p><p>进入<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>后，即表示阁下同意遵守<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>的<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047968.htm'>隐私政策</a>和<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>。</p><p>有任何的建议和意见，都欢迎联络我们：<a href='mailto:CBAChinaInfo@CBA.com'>CBAChinaInfo@CBA.com</a></p><p>有关CBA商品授权合作事宜，敬请联系:<a href='mailto:GMGChinaBusinessInquiry@CBA.com'>GMGChinaBusinessInquiry@CBA.com</a></p></div></div></div>"
+		$(".footer").empty();
+		$(".footer").append(html);
+	}
+	function prev(){
+		var params={};
+		params.currentPage = eval('('+$('#pc_currentPage').html()+'-1'+')');
+		params.state = $(".ul-bottom").find("a").attr("state");
+		$.ajax({
+			type:'post',
+			url:'getAllOrder.action',
+			dataType:'json',
+			data:params,
+			success:function(data){
+				var c = eval(data);  
+				if(c!=null){
+					console.log(c);
+					/* showOrders(orders) */
+						showOrders(c); 
+				}
+			}
+		}); 
+	}
+	function next(){
+		var params={};
+		params.currentPage = eval('('+$('#pc_currentPage').html()+'+1'+')');
+		params.state = $(".ul-bottom").find("a").attr("state");
+ 		$.ajax({
+			type:'post',
+			url:'getAllOrder.action',
+			dataType:'json',
+			data:params,
+			success:function(data){
+				var c = eval(data);  
+				if(c!=null){
+					console.log(c);
+					/* showOrders(orders) */
+						showOrders(c); 
+				}
+			}
+		});  
+	}
+	function page(i){
+		var params={};
+		params.currentPage = i;
+		params.state = $(".ul-bottom").find("a").attr("state");
+		$.ajax({
+			type:'post',
+			url:'getAllOrder.action',
+			dataType:'json',
+			data:params,
+			success:function(data){
+				var c = eval(data);  
+				if(c!=null){
+					console.log(c);
+					/* showOrders(orders) */
+						showOrders(c); 
+				}
+			}
+		}); 
+	}
+	function allOrders(obj){
+
+		$(".ul-bottom").removeAttr("class");
+		$(obj).parent().attr("class","ul-bottom");
+		var state = $(obj).attr("state");
+		$.ajax({
+			type:'post',
+			url:'getAllOrder.action',
+			dataType:'json',
+			date:{state:state},
+			success:function(data){
+					var c = eval(data);  
+					if(c!=null){
+						console.log(c);
+						/* showOrders(orders) */
+ 						showOrders(c); 
+					}
+				}
+		});
+	}
+	function giveMoney(obj){
+		$(".ul-bottom").removeAttr("class");
+		$(obj).parent().attr("class","ul-bottom");
+		var state = $(obj).attr("state");
+		console.log(state);
+		$.ajax({
+			type:'post',
+			url:'getAllOrder.action',
+			dataType:'json',
+			data:{state:state},
+			success:function(data){
+					var c = eval(data);  
+					if(c!=null){
+						console.log(c);
+						/* showOrders(orders) */
+ 						showOrders(c); 
+					}
+				}
+		});
+	}
+	function confirmGoods(obj){
+		var orderId = $(obj).parent().parent().parent().parent().parent().prev().find("tr").eq(1).find("span").eq(2).html();
+		$.ajax({
+			type:'post',
+			url:'confirmOrders.action',
+			dataType:'json',
+			data:{orderId:orderId},
+			success:function(data){
+					alert("确认收货成功！");
+					window.location.reload();
+				}
+		});
+	}
+	function cancelGoods(obj){
+		var orderId = $(obj).parent().parent().parent().parent().parent().prev().find("tr").eq(1).find("span").eq(2).html();
+		$.ajax({
+			type:'post',
+			url:'cancelOrders.action',
+			dataType:'json',
+			data:{orderId:orderId},
+			success:function(data){
+					alert("取消订单成功！");
+					window.location.reload();
+				}
+		});
+	}
+	Date.prototype.Format = function (fmt) { //author: meizz
+		var o = {
+		"M+": this.getMonth() + 1, //月份
+		"d+": this.getDate(), //日
+		"h+": this.getHours(), //小时
+		"m+": this.getMinutes(), //分
+		"s+": this.getSeconds(), //秒
+		"q+": Math.floor((this.getMonth() + 3) / 3), //季度
+		"S": this.getMilliseconds() //毫秒
+		};
+		if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+		for (var k in o)
+		if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+		return fmt;
+	}
+</script>
+</body>
+</html>

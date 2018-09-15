@@ -1,0 +1,366 @@
+.header {
+	height: 120px;
+	width: 100%;
+	background: #006bb7;
+}
+body{
+	margin:0;
+}
+div{
+	display: block;
+}
+.header-bg {
+	position: absolute;
+/* 	left: 0%;
+	margin-left: -600px; */
+	width: 100%;
+	height: 120px;
+	background: url(../images/header-bg.png) no-repeat;
+}
+.header-wrap {
+	width: 100%;
+	margin: 0 auto;
+}
+.header-main {
+	position: relative;
+	height: 80px;
+}
+.header-logo {
+	height: 80px;
+	float: left;
+	margin-left:15%;
+}
+.header-logo .link-china {
+	padding-left: 45px;
+	padding-top: 2px;
+	height: 71px;
+	width: 250px;
+	color: #fff;
+	font-size: 38px;
+	font-weight: 700;
+	float: left;
+}
+.nav {
+	padding-left: 40px;
+	height: 40px;
+	width: 60%;
+	background: 0 0;
+	position: relative;
+	margin: 0 auto;
+}
+.nav-wrap {
+	height: 40px;
+	float: left;
+	width:80%;
+}
+.index {
+    margin-left: 20%;
+}
+ol, ul {
+	list-style: none;
+}
+.nav-wrap .nav-tab {
+	position: relative;
+	width:20%;
+	height: 40px;
+	float: left;
+}
+.nav-wrap .nav-tab a{
+	text-decoration: none;
+}
+.nav-wrap .nav-team {
+	position: absolute;
+	top: 40px;
+	left: -250%;
+	width: 900%;
+	border-left: 1px solid #eeeeee;
+	border-right: 1px solid #eeeeee;
+	border-bottom: 1px solid #eeeeee;
+/*	border: 2px solid #002f50;*/
+	background: #fff;
+	z-index: 999;
+ 	display: none; 
+}
+
+.nav-wrap .nav-tab>a {
+	text-decoration: none;
+	padding: 5px 15px 0 10px;
+	height: 35px;
+	color: #fff;
+	font-size: 16px;
+	float: left;
+}
+.nav-wrap .team-list a {
+	text-decoration: none;
+	width: 20%;
+	height: 70px;
+	line-height: 70px;
+	color: #2866b6;
+	font-size: 14px;
+/*    background: url(http://mat1.gtimg.com/chinanba/images/homepageteamlogos.png) no-repeat;*/
+	float: left;
+}
+.nav-wrap .team-list a:hover {
+		background-color:#f5f5f5;
+
+	}
+a:visited {
+	text-decoration: none;
+	outline: 0;
+}
+a, a:link {
+	color: #14171a;
+	text-decoration: none;
+	outline: 0;
+}
+.nav-wrap .team-list a.label-hornets {
+	background-position: 35px -922px;
+}
+.nav-wrap .team-list a.label-cavaliers {
+	background-position: 38px -492px;
+}
+.nav-wrap .team-list a.label-raptors {
+	background-position: 36px -330px;
+}
+.img-logo{
+	margin-left: 40px;
+	margin-right:10px;
+	width: 65px;
+	height: 65px;
+}
+.gray{
+	background-color:#f5f5f5;
+}
+.nav-wrap li.gray {
+	background: #f5f5f5;
+}
+.nav-side {
+    /* padding-top: 3px; */
+    /* height: 37px; */
+    float: right;
+}
+.side-user {
+    position: relative;
+    width: 50px;
+    height: 37px;
+    float: left;
+}
+.side-cart{
+	float: right;
+    height: 30px;
+    width: 30px;
+    margin-left: 50px;
+    color: #fff;
+    font-size: 25px;
+     cursor:pointer;
+}
+.side-user .user-head {
+    width: 30px;
+    height: 30px;
+}
+.side-user .user-menu {
+    z-index: 1;
+    position: absolute;
+    top: 37px;
+    right: -70px;
+    padding: 0 10px;
+    width: 140px;
+	overflow:hidden;
+    background: #006bb7;
+	display: none;
+	border-radius: 6px;
+}
+.side-user .user-menu .user-info {
+    height: 44px;
+    line-height: 44px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+    
+}
+.user-info a{
+	color: #fff;
+	text-decoration : none;
+}
+.user-info a:hover{
+	color: red;
+	text-decoration : none;
+}
+.side-user .user-menu .user-login {
+    height: 36px;
+}
+
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #2464b5;
+    z-index: 999;
+    display: none;
+}
+#copyright-wrap {
+    width: 100%;
+    height: 190px;
+}
+
+#copyright-content {
+    width: 100%;
+    height: 190px;
+    background: #1f2428;
+}
+.copyright-content {
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 100%;
+    height: 180px;
+}
+
+.copyright-content p {
+    line-height: 25px;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    font-family: "Microsoft YaHei";
+}
+.footer p em {
+    font: 12px "Microsoft Yahei",Arial,sans-serif;
+    font-style: normal;
+}
+.copyright-content a {
+    color: #fff;
+    border: none;
+}
+.list-cover {
+    padding: 0 4%;
+    min-height: 980px;
+}
+.row {
+    font-size: 0;
+    position: relative;
+    left: 20%;
+    width: 60%;
+    background-color: #ffffff;
+    padding-bottom: 100px;
+    min-height: 1157px;
+}
+.row ul{
+	padding-left:0px !important;
+	margin-top:50px;
+	margin-bottom:50px;
+	height:100%;
+	margin-left:10%;
+	margin-right:10%;
+}
+.row>div {
+    font-size: 14px;
+}
+.col-10-2 {
+    width: 20%;
+}
+.goods_block{
+	margin:20px;
+    left: 0px;
+	display: inline-block;
+    vertical-align: top;
+    letter-spacing: normal;
+    position: relative;    
+    background-color: #ffffff;
+
+	
+}
+
+.li_block:hover{
+	box-shadow:0px 0px 5px #b7b7b7;
+}
+
+
+li, h1, h2, h3, h4, h5, p, span, a, div {
+    word-break: normal;
+}
+.list-box {
+ /*    padding: 0 20% 20% 0; */
+ 	padding-bottom:30px;
+}
+.thumbnail {
+    margin: 0;
+    padding: 0;
+    border:0 !important;
+}
+
+.list-box h2 {
+	width:150px;
+	color: #666;
+    font-size: 6px;
+    line-height: 14px;
+    padding: 20px 5% 0 5%;
+    margin: 0;
+    height: 48px;
+    overflow: hidden;
+    font-weight: normal;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.list-box p {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: Verdana;
+    padding: 14px 5% 0 5%;
+    color: #e4393c;
+}
+.list-box span {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Verdana;
+    color: #e4393c;
+}
+.li_block{
+
+    float: left;
+    position: relative;
+    z-index: 1;
+    _display: inline;
+    left:0px;
+    right: 40px;
+    margin-top: 0px;
+    margin-right: 0px;
+    bottom: 20px;
+    margin-left:10px;
+}
+.li_img{
+	opacity: 1;
+	width:150px !important;
+	height:150px !important;
+}
+a img{
+	border:0px;
+}
+.list_cover{
+	position: relative;    
+	padding-top:20px;
+	padding-bottom:20px;
+	overflow: hidden;
+}
+.goods_page{
+	position: absolute;
+    bottom: 10px;
+    margin:auto;
+    left:0px;
+    right:0px;
+
+}
+.page{
+	display:inline;
+	
+}
+.username{
+	width: 30px;
+    position: absolute;
+    left: 40px;
+    top: 8px;
+    color: #fff;
+}

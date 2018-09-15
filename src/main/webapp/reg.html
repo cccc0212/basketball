@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户注册页面</title>
+<link href="css/main.css" rel="stylesheet" media="screen">
+<link href="css/login.css" rel="stylesheet" media="screen">
+
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+
+</head>
+<body>
+<div id="login_head">
+	<div id="logo">
+		<a href="main.html"><img src="images/cba-logo_01.png" height="100%"></a>
+		<b></b>
+	</div>
+</div>
+<div id="login_main">
+	<div id="login_img">
+		<div class="login_form" style="height: 450px"> 
+			<div class="login_tab">&nbsp;&nbsp;账户注册</div>
+			<div class="item">
+				<label class="login_label" ></label>
+				<input id="username" class="login_name" placeholder="用户名">
+			</div>
+			<div class="item">
+				<label class="login_label login_pwd" ></label>
+				<input  type="password"  id="pwd1" class="login_name" placeholder="密码">
+			</div>
+			<div class="item">
+				<label class="login_label login_pwd" ></label>
+				<input  type="password"  id="pwd2" class="login_name" placeholder="确认密码">
+			</div>
+			<div class="item p1">
+				<a class="btn_img" href="javascript:reg()">注册</a>
+			</div>
+			<div class="p2">
+				<div class="z1">
+					<a href="userLogin.html"><b></b>返回登录</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div id='copyright-wrap'>
+	<div id='copyright-content'>
+		<div class='copyright-content'><p><em>&copy;</em>2018年著作权 CBA 中国所有权。</p><p><a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>上除去<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>中所特别提及的部分之外，其它任何内容都不得以任何形式被复制、再传播，或篡改。</p><p>进入<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>后，即表示阁下同意遵守<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>的<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047968.htm'>隐私政策</a>和<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>。</p><p>有任何的建议和意见，都欢迎联络我们：<a href='mailto:CBAChinaInfo@CBA.com'>CBAChinaInfo@CBA.com</a></p><p>有关CBA商品授权合作事宜，敬请联系:<a href='mailto:GMGChinaBusinessInquiry@CBA.com'>GMGChinaBusinessInquiry@CBA.com</a></p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$("body").keydown(function() {
+	    if (event.keyCode == "13") {//keyCode=13是回车键
+	        reg();
+	    }
+	});
+
+	function validate(){
+		var pw1 = $("#pwd1").val();
+		var pw2 = $("#pwd2").val();
+		if(pw1==pw2)
+			return true;
+		else
+			return false;	
+	}
+	function validateUserName(){
+		
+	}
+	function reg(){
+		var username = $("#username").val();
+		var password = $("#pwd1").val();
+		if(username==''){
+			alert("用户名不能为空");
+		}else if(username.length>8){
+			alert("用户名必须小于10个字符！");
+		}else if(password==''){
+			alert("密码不能为空！");
+		}else if(password.length>15){
+			alert("密码必须小于15个字符！");
+		}else if(validate()){
+
+		 	$.ajax({
+				type:'post',
+				url:'userReg.action',
+				dataType:'json',
+				data:{username:username,password:password},
+				success:function(data){
+						alert("注册成功！您的ID为："+data);
+					}
+			});
+		}else{
+			alert("两次密码不一致！请重新输入！");
+		}
+	}
+
+	
+
+
+
+</script>
+</body>
+</html>

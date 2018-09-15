@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="css/main.css" rel="stylesheet" media="screen">
+<link href="css/goods.css" rel="stylesheet" media="screen">
+<link href="css/font-awesome.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<style type="text/css">
+a{
+	cursor:pointer;
+}
+</style>
+<script type="text/javascript">
+
+
+</script>
+
+</head>
+<body>
+<div class="header">
+	<div class="header-bg"></div>
+	<div class="header-wrap">
+		<div class="header-main">
+			<div class="header-logo">
+				<a href="http://china.CBA.com/" class="link-china"><img src="images/cba-logo_01.png" style="height: 80px;"></a>
+			</div>
+		</div>
+
+		<div class="nav index">
+			<div class="nav-wrap">
+				<ul>
+					<li class="nav-tab nav-index"><a href="main.html" class="no-arrow">首页</a></li>
+					<li id = "team" class="nav-tab nav-teams">
+						<a href="main.html">球队 <span class="glyphicon glyphicon-chevron-down"></span></a>
+						<div class="nav-team">
+							<ul style="padding-left: 0px;">
+								<li class="team-list">
+									<a href="club.html?id=1001" target="_blank" class="label-hornets"><img src="../CBA/images/clubs/1001.png" class="img-logo">北京首钢</a>
+									<a href="club.html?id=1002" target="_blank" class="label-cavaliers"><img src="../CBA/images/clubs/1002.jpg"  class="img-logo">辽宁本钢</a>
+									<a href="club.html?id=1003" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1003.png"  class="img-logo">广东东莞银行</a>
+									<a href="club.html?id=1004" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1004.jpg"  class="img-logo">新疆喀什古城</a>
+									<a href="club.html?id=1005" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1005.jpg"  class="img-logo">深圳马可波罗</a>
+								</li>
+								<li class="team-list gray" style="background-color:#f5f5f5;">
+									<a href="club.html?id=1006" target="_blank" class="label-hawks"><img src="../CBA/images/clubs/1006.jpg" class="img-logo">浙江广厦控股</a>
+									<a href="club.html?id=1007" target="_blank" class="label-bulls"><img src="../CBA/images/clubs/1007.jpg" class="img-logo">天津滨海云商</a>
+									<a href="club.html?id=1008" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1008.jpg" class="img-logo">上海哔哩哔哩</a>
+									<a href="club.html?id=1009" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1009.jpg" class="img-logo">山东高速</a>
+									<a href="club.html?id=1010" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1010.png" class="img-logo">福建浔兴SBS</a>
+								</li>
+								<li class="team-list">
+									<a href="club.html?id=1011" target="_blank" class="label-wizards"><img src="../CBA/images/clubs/1011.png" class="img-logo">南京同曦</a>
+									<a href="club.html?id=1012" target="_blank" class="label-pistons"><img src="../CBA/images/clubs/1012.jpg" class="img-logo">四川品胜</a>
+									<a href="club.html?id=1013" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1013.jpg" class="img-logo">浙江稠州银行</a>
+									<a href="club.html?id=1014" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1014.jpg" class="img-logo">九台农商银行</a>
+									<a href="club.html?id=1015" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1015.png" class="img-logo">广州证券</a>
+								</li>
+								<li class="team-list gray" style="background-color:#f5f5f5;">
+									<a href="club.html?id=1016" target="_blank" class="label-magic"><img src="../CBA/images/clubs/1016.png" class="img-logo">山西汾酒股份</a>
+									<a href="club.html?id=1017" target="_blank" class="label-pacers"><img src="../CBA/images/clubs/1017.png" class="img-logo">八一双鹿电池</a>
+									<a href="club.html?id=1018" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1018.jpg" class="img-logo">青岛国信双星</a>
+									<a href="club.html?id=1019" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1019.jpg" class="img-logo">江苏肯帝亚</a>
+									<a href="club.html?id=1020" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1020.jpg" class="img-logo">北京农商银行</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-tab nav-players"><a href="player.html">球员</a></li>
+					<li class="nav-tab nav-schedule"><a href="schedule.html">赛程</a></li>
+					<li class="nav-tab nav-schedule"><a href="main.html">商城</a></li>
+				</ul>
+			</div>
+			<div class="nav-side">
+				<div class="side-cart" onclick="showCart()"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+		        <div class="side-user" id="user-face">
+		            <div class="user-head"><img src="images/user.png" id="user-face"> <div class="username"></div></div>
+		            <ul class="user-menu">
+		                <li class="user-info" align="center">您好~请您登录</li>
+		                <li class="user-login"><button type="button" class="btn btn-primary" style="width:100%;padding: 0px;" onclick="window.location.href='userLogin.html'">登录</button></li>
+		            </ul>
+
+		        </div>
+		    </div>
+
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="section">
+		<div class="row">
+			<div>
+				<div class="col-12-6">
+					<div class="thumbnail">
+						<div class="pdp-cloudZoom-imgBox">
+							<img id="goods_pic" src="">
+						</div>
+					</div>
+				</div>
+				<div class="col-12-6">
+					<div class="pdp-right">
+						<p class="pdp-id">
+						商品编码：<span id="goods_id"></span>
+						</p>
+						<h1 id="itemName_pc"></h1>
+						<p class="pdp-discount-note"></p>
+						<p class="pdp-price" id="pdpPrice_pc"></p>
+						<div style="height: 50px;border-top: 1px solid #e0e3e9;width: 80%;padding-top:2%;">
+							<button id="dec" class="btn btn-primary" style="float:left" onclick="numDec()" disabled="disabled"><i class="fa fa-minus" aria-hidden="true"></i></button> 
+								 <input type="text" class="form-control" onchange="change()" style="width:25%;float:left;    margin-left: 2px;margin-right: 2px;" id="quantity" value="1"/>
+							<button id="add" class="btn btn-primary" style="float:left" onclick="numAdd()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+							<div id="goods_num" style="float: left;padding-left: 10px;padding-top: 18px;color: #aaabaa;"><span>库存</span></div>
+						</div>
+						<div class="pdp-mado">
+								<button class="btn-red" onclick="addCart()">加入购物车</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="intro">
+				<h2>商品介绍</h2>
+				<div id="goods_intro">
+				
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+<div class="footer">
+
+
+</div>
+<script type="text/javascript">
+
+	$("#team").hover(
+			function(){$(this).find("div").show();},function(){$(this).find("div").hide();}
+		);
+	$("#user-face").hover(
+			function(){$(this).find("ul").show();},function(){$(this).find("ul").hide();}
+		);
+	var goods_num=1;
+	 window.onload=function(){
+			var id = window.location.href.split("=")[1];
+			var params={};
+			params.id=id;
+		 	$.ajax({
+				type:'post',
+				url:'q_Goods.action',
+				dataType:'json',
+				data:params,
+				success:function(data){
+						var c = eval(data);  
+						goods_num = c.num;
+						showGoods(c);
+					}
+			}); 
+		 	$.ajax({
+				type:'post',
+				url:'userName.action',
+				dataType:'json',
+				success:function(data){
+						var user = eval(data);  
+						if(user!=null)
+							showUser(user);
+					}
+			});
+		}
+		function showGoods(c){
+			$("#goods_pic").attr("src","../CBA/"+c.img);
+			$("#goods_id").html(c.id);
+			$("#itemName_pc ").html(c.name);
+			$("#pdpPrice_pc").html("¥"+c.price);
+			$("#goods_intro").html(c.intro);
+			$("#goods_num").append(c.num);
+			var html="<div id='copyright-wrap'><div id='copyright-content'><div class='copyright-content'><p><em>&copy;</em>2018年著作权 CBA 中国所有权。</p><p><a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>上除去<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>中所特别提及的部分之外，其它任何内容都不得以任何形式被复制、再传播，或篡改。</p><p>进入<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>后，即表示阁下同意遵守<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>的<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047968.htm'>隐私政策</a>和<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>。</p><p>有任何的建议和意见，都欢迎联络我们：<a href='mailto:CBAChinaInfo@CBA.com'>CBAChinaInfo@CBA.com</a></p><p>有关CBA商品授权合作事宜，敬请联系:<a href='mailto:GMGChinaBusinessInquiry@CBA.com'>GMGChinaBusinessInquiry@CBA.com</a></p></div></div></div>"
+				$(".footer").append(html);
+		}
+		function showUser(user){
+			$(".username").html(user.username);
+			$(".user-menu").empty();
+			var html="<li class='user-info' align='center'><a href='info.html'>个人信息</a></li><li class='user-info' align='center'><a href='order.html'>订单信息</a></li><li class='user-info' align='center'><a href='userLogin.html'>退出</a></li>"
+			$(".user-menu").append(html);
+		}
+	
+	/*商品数量+1*/
+	function numAdd(){
+		var num_add = parseInt($("#quantity").val())+1;
+		if (num_add>1) {
+			$("#dec").removeAttr("disabled");
+		}
+		if(num_add==goods_num){
+			$("#add").attr("disabled","disabled");
+		}	
+		$("#quantity").val(num_add);
+		
+	}
+	/*商品数量-1*/
+	function numDec(){
+		var num_dec = parseInt($("#quantity").val())-1;
+		if(num_dec<2){
+			$("#dec").attr("disabled","disabled");
+		}else{
+			$("#add").removeAttr("disabled");
+		}
+		$("#quantity").val(num_dec);
+	}
+	function change(){
+		if($("#quantity").val()>=goods_num){
+			$("#add").attr("disabled","disabled");
+			$("#dec").removeAttr("disabled");
+			$("#quantity").val(goods_num);
+		}else if($("#quantity").val()>1){
+			$("#dec").removeAttr("disabled");
+			$("#add").removeAttr("disabled");
+		}else{
+			$("#quantity").val(1);
+			$("#dec").attr("disabled","disabled");
+		}
+	}
+	function showCart(){
+	 	$.ajax({
+			type:'post',
+			url:'userNameExist.action',
+			dataType:'json',
+			success:function(data){
+					console.log(1); 
+					if(data==1)
+						window.location.href="goodsCart.html";
+					else
+						window.location.href="userLogin.html";
+				}
+		});
+	}
+	function addCart(){
+	 	$.ajax({
+			type:'post',
+			url:'userNameExist.action',
+			dataType:'json',
+			success:function(data){
+					if(data==1){
+						var goodsId = $("#goods_id").html();
+						var buyNum = $("#quantity").val();
+					 	$.ajax({
+							type:'post',
+							url:'addCart.action',
+							data:{goodsId:goodsId,buyNum:buyNum},
+							dataType:'json',
+							success:function(data){
+								alert("加入购物车成功！");
+							}
+						});
+					}
+					else{
+						alert("请先登录！");
+						window.location.href="userLogin.html";
+					}
+				}
+		});
+	}
+</script>
+</body>
+</html>

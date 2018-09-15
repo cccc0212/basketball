@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ssm.mapper.ClubMapper">
+<cache type="cn.ssm.cache.RedisCache"/>
+	<select id = "selectClub" resultType = "cn.ssm.po.Club">
+		select cid, name from club where delete_state=0
+	</select>
+	<select id="selectClubId" resultType="int">
+		select max(cid) from club where delete_state=0
+	</select>
+	
+	<select id = "selectClubById" resultType = "cn.ssm.po.Club">
+		select cid, name ,logo,intro,area,gym,birth from club where cid = #{cid} and delete_state=0
+	</select>
+	
+	<select id = "selectClubAchievement" resultType = "cn.ssm.po.Achievement">
+		select id,cid, matching,ranking,time from achievement where cid = #{cid} and delete_state=0
+	</select>
+	
+	<select id = "selectPlayer" resultType = "cn.ssm.po.Player">
+		select pid, player.cid, club.name cname, number, player.name, location, height, weight,  birthday from player,club where player.cid=#{cid} and player.cid=club.cid and player.delete_state=0 and club.delete_state=0
+	</select>
+	
+	<select id = "selectPlayerList" resultType = "cn.ssm.po.Player">
+		select pid, player.cid, club.name cname, number, player.name, location, height, weight,  birthday from player,club where player.head=#{head} and player.cid=club.cid and player.delete_state=0 and club.delete_state=0
+	</select>
+	
+	<select id = "selectAllPlayer" resultType = "cn.ssm.po.Player">
+		select pid, player.cid, club.name cname, number, player.name, location, height, weight,  birthday from player,club where player.cid=club.cid and player.delete_state=0 and club.delete_state=0
+		<if test="pid!=null and pid!=''">
+			and pid=#{pid}
+		</if>
+		<if test="name!=null and name!=''">
+			and player.name like '%${name}%'
+		</if>
+		<if test="cid!=null and cid!=''">
+			and club.cid=#{cid}
+		</if>
+	</select>
+	
+	<select id="selectPlayerId" resultType = "Integer">
+		select pid from player where delete_state=0 order by pid desc limit 1
+	</select>
+	
+	<insert id="addPlayer" flushCache="true">
+		insert into player(pid,name,cid,number,location,weight,height,birthday,head) values(#{pid},#{name},#{cid},#{number},#{location},#{weight},#{height},#{birthday},#{head})
+	</insert>
+	
+	<select id="selectPlayerByPid" resultType = "cn.ssm.po.Player">
+		select * from player where pid = #{pid} and  delete_state=0
+	</select>
+	
+	<update id="updatePlayer" flushCache="true">
+		update player set name=#{name},cid=#{cid},number=#{number},location=#{location},weight=#{weight},height=#{height},birthday=#{birthday} where pid=#{pid} and  delete_state=0
+	</update>
+	
+	<update id="updatePlayer1" flushCache="true">
+		update player set head = #{head} where pid=#{pid} and  delete_state=0
+	</update>
+	
+	<update id="deletePlayer" flushCache="true">
+		update player set delete_state=1 where pid = #{pid} and delete_state=0
+	</update>
+	
+	<insert id="insertAchievement" flushCache="true">
+		insert into achievement(cid,time,matching,ranking) values(#{cid},#{time},#{matching},#{ranking})
+	</insert>
+	
+	<update id="deleteAchievement" flushCache="true">
+		update achievement set delete_state=1 where id = #{id} and delete_state=0
+	</update>
+	
+	<update id="updateAchievement" flushCache="true">
+		update achievement set time=#{time}, matching=#{matching}, ranking=#{ranking} where id=#{id} and delete_state=0
+	</update>
+	<insert id="addClub" >
+		insert into club(cid,name,logo,intro,area,gym,birth) values(#{cid},#{name},#{logo},#{intro},#{area},#{gym},#{birth})
+	</insert>
+	<select id="countPlayer" resultType="int">
+		select count(*) from player where cid=#{cid} and number = #{number} and  delete_state=0
+	</select>
+	<update id="updateClub" flushCache="true">
+		update club set name=#{name},logo=#{logo},intro=#{intro},area=#{area},gym=#{gym},birth=#{birth} where cid=#{cid} and  delete_state=0
+	</update>
+</mapper>

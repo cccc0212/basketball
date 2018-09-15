@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>主页</title>
+	<link href="css/main.css" rel="stylesheet" media="screen">
+	<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+	<link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	
+<style type="text/css">
+.category{
+	position: relative;
+	width:10%;  
+	background-color: #f7f5f5;
+	margin-left:9%;
+	float:left;
+}
+.jOneLevel{
+	overflow: hidden;
+	text-align: center;
+	padding-bottom:20px;
+	border-bottom: 1px solid #bdbdbd;
+}
+.jClassi {
+    font-size: 12px;
+    color: #999;
+    font-family: arial,\5FAE\8F6F\96C5\9ED1,\5b8b\4f53;
+}
+.jHead {
+    position: relative;
+    font-size: 20px;
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+    padding: 0 20px 15px;
+
+}
+.category_1{
+	overflow: hidden;
+	text-align: center;
+	padding-top:10px;
+	padding-bottom:10px;
+	color:#333;
+	border-bottom: dashed 1px #bdbdbd;
+}
+.category_ul{
+	overflow: hidden;
+	text-align: center;
+	padding-left:0px;
+	padding-bottom:5px;
+	padding-top:5px;
+}
+.category_ul li{
+	padding-top:5px;
+	padding-bottom:5px;
+	cursor:pointer;
+}
+.category_ul li:hover{
+	background-color:#c7c7c7;
+}
+
+
+.category_ul li a{
+	color:#000;
+	cursor:pointer;
+	text-decoration: none;
+	font-size: 12px;
+}
+</style>
+</head>
+<body>
+	<div class="header">
+		<div class="header-bg"></div>
+		<div class="header-wrap">
+			<div class="header-main">
+				<div class="header-logo">
+					<a href="http://china.CBA.com/" class="link-china"><img src="images/cba-logo_01.png" style="height: 80px;"></a>
+				</div>
+			</div>
+		<div>
+			<div class="nav index">
+				<div class="nav-wrap">
+					<ul>
+						<li class="nav-tab nav-index"><a href="main.html" class="no-arrow">首页</a></li>
+						<li id = "team" class="nav-tab nav-teams">
+						<a href="main.html">球队 <span class="glyphicon glyphicon-chevron-down"></span></a>
+						<div class="nav-team">
+							<ul style="padding-left: 0px;">
+								<li class="team-list">
+									<a href="club.html?id=1001" target="_blank" class="label-hornets"><img src="../CBA/images/clubs/1001.png" class="img-logo">北京首钢</a>
+									<a href="club.html?id=1002" target="_blank" class="label-cavaliers"><img src="../CBA/images/clubs/1002.jpg"  class="img-logo">辽宁本钢</a>
+									<a href="club.html?id=1003" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1003.png"  class="img-logo">广东东莞银行</a>
+									<a href="club.html?id=1004" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1004.jpg"  class="img-logo">新疆喀什古城</a>
+									<a href="club.html?id=1005" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1005.jpg"  class="img-logo">深圳马可波罗</a>
+								</li>
+								<li class="team-list gray" style="background-color:#f5f5f5;">
+									<a href="club.html?id=1006" target="_blank" class="label-hawks"><img src="../CBA/images/clubs/1006.jpg" class="img-logo">浙江广厦控股</a>
+									<a href="club.html?id=1007" target="_blank" class="label-bulls"><img src="../CBA/images/clubs/1007.jpg" class="img-logo">天津滨海云商</a>
+									<a href="club.html?id=1008" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1008.jpg" class="img-logo">上海哔哩哔哩</a>
+									<a href="club.html?id=1009" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1009.jpg" class="img-logo">山东高速</a>
+									<a href="club.html?id=1010" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1010.png" class="img-logo">福建浔兴SBS</a>
+								</li>
+								<li class="team-list">
+									<a href="club.html?id=1011" target="_blank" class="label-wizards"><img src="../CBA/images/clubs/1011.png" class="img-logo">南京同曦</a>
+									<a href="club.html?id=1012" target="_blank" class="label-pistons"><img src="../CBA/images/clubs/1012.jpg" class="img-logo">四川品胜</a>
+									<a href="club.html?id=1013" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1013.jpg" class="img-logo">浙江稠州银行</a>
+									<a href="club.html?id=1014" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1014.jpg" class="img-logo">九台农商银行</a>
+									<a href="club.html?id=1015" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1015.png" class="img-logo">广州证券</a>
+								</li>
+								<li class="team-list gray" style="background-color:#f5f5f5;">
+									<a href="club.html?id=1016" target="_blank" class="label-magic"><img src="../CBA/images/clubs/1016.png" class="img-logo">山西汾酒股份</a>
+									<a href="club.html?id=1017" target="_blank" class="label-pacers"><img src="../CBA/images/clubs/1017.png" class="img-logo">八一双鹿电池</a>
+									<a href="club.html?id=1018" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1018.jpg" class="img-logo">青岛国信双星</a>
+									<a href="club.html?id=1019" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1019.jpg" class="img-logo">江苏肯帝亚</a>
+									<a href="club.html?id=1020" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1020.jpg" class="img-logo">北京农商银行</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+						<li class="nav-tab nav-players"><a href="player.html">球员</a></li>
+						<li class="nav-tab nav-schedule"><a href="schedule.html">赛程</a></li>
+						<li class="nav-tab nav-schedule"><a href="main.html">商城</a></li>
+					</ul>
+				</div>
+				<div class="nav-side">
+		        	<div class="side-cart" onclick="showCart()"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+			        <div class="side-user" id="user-face">
+			            <div class="user-head"><img src="images/user.png" id="user-face"> <div class="username"></div></div>
+			            <ul class="user-menu">
+			                <li class="user-info" align="center">您好~请您登录</li>
+			                <li class="user-login"><button type="button" class="btn btn-primary" onclick="window.location.href='userLogin.html'" style="width:100%;padding: 0px;">登录</button></li>
+			            </ul>
+			        </div>
+			        
+			    </div>
+			</div>
+			
+			
+			</div>
+		</div>
+	</div>	
+
+<div style="background-color: #f0f3ef;">
+	<div class="list_cover">
+		<div style="color: #1e518c;height: 80px;padding-bottom: 20px;margin-left:20%">
+			<div style="height:40px;width:40%;margin-left:18%" class="input-group"><input type="text" style="height:40px;" class="form-control" id="goods_name"><span class="input-group-addon" onclick="search()" style="background-color: #f10215;color: #fff;width: 60px;font-size: 18px; cursor: pointer;"><i class="fa fa-search" aria-hidden="true"></i></span></div>
+			<div style="color: #1e518c;height: 20px;margin-bottom:0px;"><a href="main.html">全部商品</a><span id="goods_cate"></span></div>
+ 		</div>
+ 		<div id="category" class="category" >
+			<div class="jOneLevel">
+				<span class="">CLASSIFICATION</span>
+				<div class="jHead">
+					<span>商品分类</span>
+				</div>
+			</div>
+	<!-- 		<div>
+				<div class="category_1">
+						<span>时尚男鞋</span>
+				</div>
+				<div>
+					<ul class="category_ul">
+						<li><a>跑步鞋</a></li>
+						<li><a>休闲鞋</a></li>
+						<li><a>篮球鞋</a></li>
+					</ul>
+				</div>
+			</div> -->
+			
+		</div> 
+		<div class="row" id="showItemContainer" style="overflow:hidden;left:1% !important;">
+			<div style="overflow:hidden">
+				<ul id="goods_list">
+				</ul>
+			</div>
+			
+			<div id="pageElem" align="center" class="goods_page">
+				<div  id="withTotal" class="page">
+					共
+					<div style="display: inline" id="pc_totalCount"></div>
+					条，每页
+					<div style="display: inline" id="pc_eachCount"></div>
+					条，第
+					<div style="display: inline" id="pc_currentPage"></div>
+					/
+					<div style="display: inline" id="pc_totalPage"></div>
+					页
+				</div>
+<!-- 	
+					<a tabindex="0" id="pc_first" class="btn btn-default" href="javascript:first()">首页</a> 
+					<a tabindex="0"id="pc_prev" class="btn btn-default" href="javascript:prev()">上一页</a>
+					<a tabindex="0" id="pc_next" class="btn btn-default" href="javascript:next()">下一页</a>
+					<a tabindex="0" id="pc_last" class="btn btn-default" href="javascript:last()">尾页</a> -->
+					<nav aria-label='Page navigation'>
+						<ul style='margin:0' class='pagination'>
+						</ul>
+					</nav>
+					
+			</div>
+		</div>
+	
+	</div>
+
+	
+
+</div>
+
+
+
+
+<div class="footer">
+
+
+</div>
+<script type="text/javascript">
+	var category="";
+	$("#team").hover(
+			function(){$(this).find("div").show();},function(){$(this).find("div").hide();}
+		);
+	$("#user-face").hover(
+			function(){$(this).find("ul").show();},function(){$(this).find("ul").hide();}
+		);
+	$(document).ready(function(){
+
+	 	$.ajax({
+			type:'post',
+			url:'q_allGoods.action',
+			dataType:'json',
+			success:function(data){
+					var c = eval(data);  
+					showGoods(c);
+				}
+		}); 
+	 	$.ajax({
+			type:'post',
+			url:'userName.action',
+			dataType:'json',
+			success:function(data){
+					var user = eval(data);  
+					if(user!=null)
+						showUser(user);
+				}
+		});
+		$.ajax({
+			type:'post',
+			url:'allcategory.action',
+			dataType:'json',
+			success:function(data){
+				topCategory = eval(data);  
+					showCategory(topCategory); 
+				}
+		});
+	});
+	function showGoods(c){
+		$("#showItemContainer ul").empty();
+		$(".footer").empty();
+		var list = c.list;
+		for ( var i = 0; i < list.length; i++) {  
+	    	ht="<li class='li_block'><div class='goods_block'> <div class='list-box'><a class='thumbnail' href='goods.html?id="+list[i].id+"' target='_blank'><img src='../CBA/"+list[i].img+"' class='li_img' ></a><h2>"+list[i].name+"</h2><p><em>￥<em><span>"+list[i].price+"</span></p></div></div></li>"
+	    	$("#goods_list").append(ht);  
+		}
+		console.log(c.pages);
+		$(".pagination").empty();
+		 $("#withTotal").empty(); 
+		if(c.pages>1){
+
+			var str = "共<div style='display: inline' id='pc_totalCount'>"+c.total+"</div>条，每页<div style='display: inline' id='pc_eachCount'>"+c.pageSize+"</div>条，第<div style='display: inline' id='pc_currentPage'>"+c.pageNum+"</div>/<div style='display: inline' id='pc_totalPage'>"+c.pages+"</div>页";
+			$("#withTotal").append(str);
+
+			
+			var page="<li><a id='prev' href='javascript:prev()' aria-label='Previous'><span aria-hidden='true'>&laquo;</span></a></li>"
+			if(c.pages<=7){
+				for(var i=1;i<=c.pages;i++){
+					if(i==c.pageNum)
+						page+="<li class='active'><a href='javascript:page("+i+")'>"+i+"</a></li>";
+					else
+						page+="<li><a href='javascript:page("+i+")'>"+i+"</a></li>";
+				}
+			}
+			else{
+				if(c.pageNum<5){
+					for(var i=1;i<=6;i++){
+						if(i==c.pageNum)
+							page+="<li class='active'><a href='javascript:page("+i+")'>"+i+"</a></li>";
+						else
+							page+="<li><a href='javascript:page("+i+")'>"+i+"</a></li>";
+					}
+					page+="<li><span aria-hidden='true'>...</span></li><li><a href='javascript:page("+c.pages+")'>"+c.pages+"</a></li>";
+					
+				}
+				else{
+					page+="<li><a href='javascript:page(1)'>1</a></li><li><span aria-hidden='true'>...</span></li>";
+					if(c.pages-c.pageNum<=3){
+						console.log(c.pages);
+						console.log(c.pageNum);
+	 					for(var i=c.pages-5;i<=c.pages;i++){
+	 						if(i==c.pageNum)
+	 							page+="<li class='active'><a href='javascript:page("+i+")'>"+i+"</a></li>";
+	 						else
+	 							page+="<li><a href='javascript:page("+i+")'>"+i+"</a></li>";
+						} 
+					}
+					else{
+	 					for(var i=c.pageNum-2;i<=c.pageNum+2;i++){
+	 						if(i==c.pageNum)
+	 							page+="<li class='active'><a href='javascript:page("+i+")'>"+i+"</a></li>";
+	 						else
+	 							page+="<li><a href='javascript:page("+i+")'>"+i+"</a></li>";
+						}
+						page+="<li><span aria-hidden='true'>...</span></li><li><a href='javascript:page("+c.pages+")'>"+c.pages+"</a></li>"; 
+					}
+				}
+	
+			}
+			
+			
+			
+			page+="<li><a id='next' href='javascript:next()' aria-label='Next'><span aria-hidden='true'>&raquo;</span></a></li>"
+			$(".pagination").append(page);
+			
+			if(c.pageNum<2)
+				$("#prev").attr("href","javascript:void(0);");
+			else
+				$("#prev").attr("href","javascript:prev()");
+			if(c.isLastPage)
+				$("#next").attr("href","javascript:void(0);");
+			else
+				$("#next").attr("href","javascript:next()");
+		}
+		var html="<div id='copyright-wrap'><div id='copyright-content'><div class='copyright-content'><p><em>&copy;</em>2018年著作权 CBA 中国所有权。</p><p><a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>上除去<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>中所特别提及的部分之外，其它任何内容都不得以任何形式被复制、再传播，或篡改。</p><p>进入<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>后，即表示阁下同意遵守<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>的<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047968.htm'>隐私政策</a>和<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>。</p><p>有任何的建议和意见，都欢迎联络我们：<a href='mailto:CBAChinaInfo@CBA.com'>CBAChinaInfo@CBA.com</a></p><p>有关CBA商品授权合作事宜，敬请联系:<a href='mailto:GMGChinaBusinessInquiry@CBA.com'>GMGChinaBusinessInquiry@CBA.com</a></p></div></div></div>"
+		$(".footer").append(html);
+	}
+	function showUser(user){
+		$(".username").html(user.username);
+		$(".user-menu").empty();
+		var html="<li class='user-info' align='center'><a href='info.html'>个人信息</a></li><li class='user-info' align='center'><a href='order.html'>订单信息</a></li><li class='user-info' align='center'><a href='javascript:void(0)' onclick='quit()'>退出</a></li>"
+		$(".user-menu").append(html);
+	}
+/* 	function first(){
+		var params={};
+		params.currentPage=1;
+		$.ajax({
+			type:'post',
+			url:'q_allGoods.action',
+			dataType:'json',
+			data:params,
+			success:function(data){
+					var c = eval(data);  
+					showGoods(c);
+				}
+		}); 
+	}
+	*/
+	function search(){
+		category="";
+		var goods_name=$("#goods_name").val();
+		var params={};
+		params.name=goods_name;
+		$.ajax({
+			type:'post',
+			url:'q_allGoods.action',
+			dataType:'json',
+			data:params,
+			success:function(data){
+					var c = eval(data);  
+					showGoods(c);
+				}
+		}); 
+	}
+	function prev(){
+		var goods_name=$("#goods_name").val();
+		var params={};
+		params.currentPage = eval('('+$('#pc_currentPage').html()+'-1'+')');
+		params.category = category;
+		params.name=goods_name;
+		$.ajax({
+			type:'post',
+			url:'q_allGoods.action',
+			dataType:'json',
+			data:params,
+			success:function(data){
+					var c = eval(data);  
+					showGoods(c);
+				}
+		}); 
+	}
+	function next(){
+		var goods_name=$("#goods_name").val();
+		var params={};
+		params.currentPage = eval('('+$('#pc_currentPage').html()+'+1'+')');
+		params.category = category;
+		params.name=goods_name;
+ 		$.ajax({
+			type:'post',
+			url:'q_allGoods.action',
+			dataType:'json',
+			data:params,
+			success:function(data){
+					var c = eval(data);  
+					showGoods(c);
+				}
+		});  
+	}
+/*	function last(){
+		var params={};
+		params.currentPage = $("#pc_totalPage").html();
+
+		$.ajax({
+			type:'post',
+			url:'q_allGoods.action',
+			dataType:'json',
+			data:params,
+			success:function(data){
+					var c = eval(data);  
+					showGoods(c);
+				}
+		}); 
+	} */
+	function page(i){
+		var goods_name=$("#goods_name").val();
+		var params={};
+		params.currentPage = i;
+		params.category = category;
+		params.name=goods_name;
+		$.ajax({
+			type:'post',
+			url:'q_allGoods.action',
+			dataType:'json',
+			data:params,
+			success:function(data){
+					var c = eval(data);  
+					showGoods(c);
+				}
+		}); 
+	}
+	function showCategory(topCategory){
+		for(var i=0; i<topCategory.length;i++){
+			var ht="<div><div class='category_1'><span>"+topCategory[i].name+"</span><i onclick='categoryHide(this)' class='fa fa-chevron-down' aria-hidden='true' style='position: absolute;right: 8px;cursor:pointer;'></i></div><div><ul class='category_ul'>";
+				for(var j=0; j<topCategory[i].list.length; j++){
+					ht += "<li onclick='getCategory("+topCategory[i].list[j].id+",this)'>"+topCategory[i].list[j].name+"</li>"
+				}
+			$("#category").append(ht);
+		}
+	}
+	function categoryHide(obj){
+		$(obj).attr("onclick","categoryShow(this)");
+		$(obj).attr("class","fa fa-chevron-left");
+		$(obj).parent().next().hide();
+	}
+	function categoryShow(obj){
+		$(obj).attr("onclick","categoryHide(this)");
+		$(obj).attr("class","fa fa-chevron-down");
+		$(obj).parent().next().show();
+	}
+	function getCategory(obj,cbj){
+		$("#goods_name").val("");
+		str = "/"+$(cbj).parent().parent().prev().find("span").html();
+		str += "/"+$(cbj).html();
+		$("#goods_cate").html(str);
+		category = obj;
+		page(1);
+	}
+	function showCart(){
+	 	$.ajax({
+			type:'post',
+			url:'userNameExist.action',
+			dataType:'json',
+			success:function(data){
+					console.log(1); 
+					if(data==1)
+						window.location.href="goodsCart.html";
+					else
+						window.location.href="userLogin.html";
+				}
+		});
+	}
+	function quit(){
+	 	$.ajax({
+			type:'post',
+			url:'quit.action',
+			dataType:'json',
+			success:function(data){
+					window.location.href="userLogin.html";
+			}
+		});
+	}
+</script>
+
+</body>
+</html>

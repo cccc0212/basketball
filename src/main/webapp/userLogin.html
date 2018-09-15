@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>用户登录页面</title>
+<link href="css/main.css" rel="stylesheet" media="screen">
+<link href="css/login.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+<div id="login_head">
+	<div id="logo">
+		<a href="main.html"><img src="images/cba-logo_01.png" height="100%"></a>
+		<b></b>
+	</div>
+</div>
+<div id="login_main">
+	<div id="login_img">
+		<div class="login_form"> 
+			<div class="login_tab">&nbsp;&nbsp;账户登录</div>
+			<div id="error" class="err" >用户不存在或密码错误！</div> 
+			<div class="item">
+				<label class="login_label" ></label>
+				<input id="uid" class="login_name" placeholder="用户ID">
+			</div>
+			<div class="item">
+				<label class="login_label login_pwd" ></label>
+				<input  type="password"  id="pwd" class="login_name" placeholder="密码">
+			</div>
+			<div class="item p1">
+				<a class="btn_img" href="javascript:login()">登录</a>
+			</div>
+			<div class="p2">
+				<div class="z1">
+					<a href="reg.html"><b></b>立即注册</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+<div id='copyright-wrap'>
+	<div id='copyright-content'>
+		<div class='copyright-content'><p><em>&copy;</em>2018年著作权 CBA 中国所有权。</p><p><a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>上除去<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>中所特别提及的部分之外，其它任何内容都不得以任何形式被复制、再传播，或篡改。</p><p>进入<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>后，即表示阁下同意遵守<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>的<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047968.htm'>隐私政策</a>和<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>。</p><p>有任何的建议和意见，都欢迎联络我们：<a href='mailto:CBAChinaInfo@CBA.com'>CBAChinaInfo@CBA.com</a></p><p>有关CBA商品授权合作事宜，敬请联系:<a href='mailto:GMGChinaBusinessInquiry@CBA.com'>GMGChinaBusinessInquiry@CBA.com</a></p>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$("body").keydown(function() {
+	    if (event.keyCode == "13") {//keyCode=13是回车键
+	        login();
+	    }
+	});
+	function login(){
+		params={};
+		params.uid=$("#uid").val();
+		params.password=$("#pwd").val();
+		if(params.uid==''){
+			alert("用户ID不能为空");
+		}else if(params.password==''){
+			alert("密码不能为空！");
+		}else{
+		 	$.ajax({
+				type:'post',
+				url:'userLogin.action',
+				dataType:'json',
+				data:params,
+				success:function(data){
+						if(data==1)
+							window.location.href="main.html";
+						else
+							$("#error").show();
+					}
+			});
+		}
+	}
+
+
+</script>
+</body>
+</html>

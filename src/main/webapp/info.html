@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="css/main.css" rel="stylesheet" media="screen">
+<link href="css/goods.css" rel="stylesheet" media="screen">
+<link href="css/font-awesome.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<style type="text/css">
+	.base_info{
+		color: #736e6e;
+    	margin-left: 10%;
+    	font-size: 20px !important;
+    	margin-right: 10%;
+    	border-bottom: 1px solid #736e6e;
+	}
+	.main_info{
+		padding-left:10%;
+		padding-top:20px;
+		padding-bottom:20px;
+		overflow:hidden;
+		color:#736e6e;
+	}
+	.main_info div{
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+	#update_username{
+		display:none;
+		height: 20px;
+		width:100px;
+		color: #736e6e;
+	}
+	.sub_info{
+	    width: 40px;
+	    height: 20px;
+	    padding-top: 0px !important;
+	    padding-bottom: 0px !important;
+	    margin-left: 10%;
+	    padding-left: 5px;
+	    padding-right: 5px;
+	    text-decoration: none;
+	    background-color: #fbeed5;
+	}
+	.address_info{
+		color: #736e6e;
+    	margin-left: 10%;
+    	font-size: 20px !important;
+    	margin-right: 10%;
+    	margin-top:5px;
+	}
+	.address_info_1{
+		padding-left:10px;
+		padding-top:10px;
+		padding-bottom:10px;
+		border:1px solid #736e6e;
+		overflow:hidden;
+		margin-top:5px;
+	}
+	.label{
+	    font-weight: 500 !important;
+		float: left;
+    	width: 20%;
+    	color: #999;
+    	text-align: right;
+	}
+	.label_right{
+		float: left;
+    	width: 80%;
+    	color: #666;
+    	text-align: left;
+	}
+</style>
+<script type="text/javascript">
+
+
+</script>
+
+</head>
+<body>
+<div class="header">
+	<div class="header-bg"></div>
+	<div class="header-wrap">
+		<div class="header-main">
+			<div class="header-logo">
+				<a href="http://china.CBA.com/" class="link-china"><img src="images/cba-logo_01.png" style="height: 80px;"></a>
+			</div>
+		</div>
+
+		<div class="nav index">
+			<div class="nav-wrap">
+				<ul>
+					<li class="nav-tab nav-index"><a href="main.html" class="no-arrow">首页</a></li>
+					<li id = "team" class="nav-tab nav-teams">
+						<a href="main.html">球队 <span class="glyphicon glyphicon-chevron-down"></span></a>
+						<div class="nav-team">
+							<ul style="padding-left: 0px;">
+								<li class="team-list">
+									<a href="club.html?id=1001" target="_blank" class="label-hornets"><img src="../CBA/images/clubs/1001.png" class="img-logo">北京首钢</a>
+									<a href="club.html?id=1002" target="_blank" class="label-cavaliers"><img src="../CBA/images/clubs/1002.jpg"  class="img-logo">辽宁本钢</a>
+									<a href="club.html?id=1003" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1003.png"  class="img-logo">广东东莞银行</a>
+									<a href="club.html?id=1004" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1004.jpg"  class="img-logo">新疆喀什古城</a>
+									<a href="club.html?id=1005" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1005.jpg"  class="img-logo">深圳马可波罗</a>
+								</li>
+								<li class="team-list gray" style="background-color:#f5f5f5;">
+									<a href="club.html?id=1006" target="_blank" class="label-hawks"><img src="../CBA/images/clubs/1006.jpg" class="img-logo">浙江广厦控股</a>
+									<a href="club.html?id=1007" target="_blank" class="label-bulls"><img src="../CBA/images/clubs/1007.jpg" class="img-logo">天津滨海云商</a>
+									<a href="club.html?id=1008" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1008.jpg" class="img-logo">上海哔哩哔哩</a>
+									<a href="club.html?id=1009" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1009.jpg" class="img-logo">山东高速</a>
+									<a href="club.html?id=1010" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1010.png" class="img-logo">福建浔兴SBS</a>
+								</li>
+								<li class="team-list">
+									<a href="club.html?id=1011" target="_blank" class="label-wizards"><img src="../CBA/images/clubs/1011.png" class="img-logo">南京同曦</a>
+									<a href="club.html?id=1012" target="_blank" class="label-pistons"><img src="../CBA/images/clubs/1012.jpg" class="img-logo">四川品胜</a>
+									<a href="club.html?id=1013" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1013.jpg" class="img-logo">浙江稠州银行</a>
+									<a href="club.html?id=1014" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1014.jpg" class="img-logo">九台农商银行</a>
+									<a href="club.html?id=1015" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1015.png" class="img-logo">广州证券</a>
+								</li>
+								<li class="team-list gray" style="background-color:#f5f5f5;">
+									<a href="club.html?id=1016" target="_blank" class="label-magic"><img src="../CBA/images/clubs/1016.png" class="img-logo">山西汾酒股份</a>
+									<a href="club.html?id=1017" target="_blank" class="label-pacers"><img src="../CBA/images/clubs/1017.png" class="img-logo">八一双鹿电池</a>
+									<a href="club.html?id=1018" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1018.jpg" class="img-logo">青岛国信双星</a>
+									<a href="club.html?id=1019" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1019.jpg" class="img-logo">江苏肯帝亚</a>
+									<a href="club.html?id=1020" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1020.jpg" class="img-logo">北京农商银行</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-tab nav-players"><a href="player.html">球员</a></li>
+					<li class="nav-tab nav-schedule"><a href="schedule.html">赛程</a></li>
+					<li class="nav-tab nav-schedule"><a href="main.html">商城</a></li>
+				</ul>
+			</div>
+			<div class="nav-side">
+				<div class="side-cart" onclick="showCart()"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+		        <div class="side-user" id="user-face">
+		            <div class="user-head"><img src="images/user.png" id="user-face"> <div class="username"></div></div>
+		            <ul class="user-menu">
+		                <li class="user-info" align="center">您好~请您登录</li>
+		                <li class="user-login"><button type="button" class="btn btn-primary" style="width:100%;padding: 0px;" onclick="window.location.href='userLogin.html'">登录</button></li>
+		            </ul>
+
+		        </div>
+		    </div>
+
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="section">
+		<div class="row">
+			<div class="base_info">基本信息</div>
+			<div class="main_info">
+				<div>用户ID：<span style="padding-left:20px;" id="uid"></span></div>
+				<div>用户名：<span style="padding-left:20px;" id="username"></span><input id="update_username" type="text" ><i style="padding-left:20px; color:#0481ec;cursor:pointer;font-size: 18px;" class="fa fa-wrench" aria-hidden="true" onclick="changeName()"></i></div>
+				<div>性别：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="男">男&nbsp;&nbsp;&nbsp;<input type="radio" name="sex" value="女">女</div>
+				<div>密码：********<a  style="padding-left:20px;" href="javascript:void(0)" onclick="showUpdatePwd()">修改</a></div>
+				<div>
+					<div class="btn btn-default sub_info"><a href="javascript:void(0)" onclick="updateInfo()">提交</a></div>
+				</div>
+			</div>
+			<div class="base_info">收货地址<i class="fa fa-plus" style="margin-left:50px;color:red;cursor:pointer;" aria-hidden="true" onclick="showAddAddress()"></i></div>
+			<div class="address_info">
+<!-- 				<div class="address_info_1">
+					<div style="width:60%">
+						<div class="label">收货人：</div>
+						<div class="label_right label" >李宁</div>
+					</div>
+					<div style="width:60%">
+						<div class="label">手机：</div>
+						<div class="label_right label" >12345678901</div>
+					</div>
+					<div style="width:60%">
+						<div class="label">收货地址：</div>
+						<div class="label_right label" >江苏省南京市江宁区南京工程学院</div>
+					</div>
+					<div style="float:right;width:20%"><i style="float:right;margin-right:20px;color:red" class="fa fa-trash-o" aria-hidden="true"></i><i style="float:right; margin-right:20px;color: #0481ec;" class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
+				</div>
+				<div class="address_info_1">
+					<div style="width:60%">
+						<div class="label">收货人：</div>
+						<div class="label_right label" >李宁</div>
+					</div>
+					<div style="width:60%">
+						<div class="label">手机：</div>
+						<div class="label_right label" >12345678901</div>
+					</div>
+					<div style="width:60%">
+						<div class="label">收货地址：</div>
+						<div class="label_right label" >江苏省南京市江宁区南京工程学院</div>
+					</div>
+					<div style="float:right;width:20%"><i style="float:right;margin-right:20px;color:red" class="fa fa-trash-o" aria-hidden="true"></i><i style="float:right; margin-right:20px;color: #0481ec;" class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
+				</div> -->
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal" id="myPwd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden='true' data-backdrop='static'>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<h4 class="modal-title">修改密码</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="add_time">旧密码</label>
+					<input type="password" name="add_time" class="form-control" id="old_pwd" placeholder="旧密码">
+				</div>
+				<div class="form-group">
+					<label for="add_matching">新密码</label>
+					<input type="password" name="add_matching" class="form-control" id="new_pwd" placeholder="新密码">
+				</div>
+				<div class="form-group">
+					<label for="add_ranking">新密码</label>
+					<input type="password" name="add_ranking" class="form-control" id="again_pwd" placeholder="新密码">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" id="update_pwd" class="submit111 btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden='true' data-backdrop='static'>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+				<h4 class="modal-title" id="myModalLabel">新增地址</h4>
+			</div>
+			<div class="modal-body">
+				<input id="address_id" type="text" style="display:none">
+				<div class="form-group">
+					<label for="add_time">收货人</label>
+					<input type="text" name="add_time" class="form-control" id="add_name" placeholder="收货人">
+				</div>
+				<div class="form-group">
+					<label for="add_matching">手机号码</label>
+					<input type="text" name="add_matching" class="form-control" id="add_phone" placeholder="手机号码">
+				</div>
+				<div class="form-group">
+					<label for="add_ranking">收货地址</label>
+					<input type="text" name="add_ranking" class="form-control" id="add_address" placeholder="收货地址">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" id="submit_address" class="submit111 btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+				<button type="submit" id="update_address" class="submit111 btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>保存</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer">
+
+
+</div>
+<script type="text/javascript">
+
+	$("#team").hover(
+			function(){$(this).find("div").show();},function(){$(this).find("div").hide();}
+		);
+	$("#user-face").hover(
+			function(){$(this).find("ul").show();},function(){$(this).find("ul").hide();}
+		);
+	window.onload=function(){
+		$.ajax({
+			type:'post',
+			url:'userName.action',
+			dataType:'json',
+			success:function(data){
+					var user = eval(data);  
+					if(user!=null){
+						showUser(user);
+						showUserInfo(user);
+					}
+				}
+		});
+		$.ajax({
+			type:'post',
+			url:'getAddress.action',
+			dataType:'json',
+			success:function(data){
+					var user = eval(data);  
+					if(user!=null){
+						showAddress(user);
+					}
+				}
+		});
+	}
+	
+
+	function showUser(user){
+		$(".username").html(user.username);
+		$(".user-menu").empty();
+		var html="<li class='user-info' align='center'><a href='info.html'>个人信息</a></li><li class='user-info' align='center'><a href='order.html'>订单信息</a></li><li class='user-info' align='center'><a href='userLogin.html'>退出</a></li>"
+		$(".user-menu").append(html);
+		var html="<div id='copyright-wrap'><div id='copyright-content'><div class='copyright-content'><p><em>&copy;</em>2018年著作权 CBA 中国所有权。</p><p><a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>上除去<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>中所特别提及的部分之外，其它任何内容都不得以任何形式被复制、再传播，或篡改。</p><p>进入<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>后，即表示阁下同意遵守<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>的<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047968.htm'>隐私政策</a>和<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>。</p><p>有任何的建议和意见，都欢迎联络我们：<a href='mailto:CBAChinaInfo@CBA.com'>CBAChinaInfo@CBA.com</a></p><p>有关CBA商品授权合作事宜，敬请联系:<a href='mailto:GMGChinaBusinessInquiry@CBA.com'>GMGChinaBusinessInquiry@CBA.com</a></p></div></div></div>"
+		$(".footer").append(html);
+	}
+	function showUserInfo(user){
+		$("#uid").html(user.uid);
+		$("#username").html(user.username);
+		$("#update_username").val(user.username);
+		if($("input[name='sex']").eq(0).attr("value")==user.sex)
+			$("input[name='sex']").eq(0).attr("checked",true);
+		else
+			$("input[name='sex']").eq(1).attr("checked",true);
+	}
+	function showAddress(user){
+		for(var i=0; i<user.list.length;i++){
+			var str ="<div class='address_info_1' addressId='"
+						+user.list[i].addressId+"'><div style='width:60%;overflow:hidden;'><div class='label'>收货人：</div><div class='label_right label' >"
+						+user.list[i].name+"</div></div><div style='width:60%;overflow:hidden;'><div class='label'>手机：</div><div class='label_right label' >"
+						+user.list[i].phone+"</div></div><div style='width:60%;overflow:hidden;'><div class='label'>收货地址：</div><div class='label_right label' >"
+						+user.list[i].address+"</div></div><div style='float:right;width:20%'><i style='float:right;margin-right:20px;color:red;cursor:pointer;' onclick='deleteAddress(this)' class='fa fa-trash-o' aria-hidden='true'></i><i style='cursor:pointer;float:right; margin-right:20px;color: #0481ec;' class='fa fa-pencil-square-o' onclick='showUpdateAddress(this)' aria-hidden='true'></i></div></div>";
+			$(".address_info").append(str);
+		}
+	}
+	
+	function changeName(){
+		$("#username").hide();
+		$("#update_username").show();
+		
+	}
+	function updateInfo(){
+		params={};
+		params.uid=$("#uid").html();
+		params.username=$("#update_username").val();
+		params.sex=$('input[name="sex"]:checked').val();
+		$.ajax({
+			type:'post',
+			url:'updateInfo.action',
+			dataType:'json',
+			data:params,
+			success:function(data){
+					alert("修改成功！");
+					window.location.reload();
+				}
+		});
+	}
+	function showCart(){
+	 	$.ajax({
+			type:'post',
+			url:'userNameExist.action',
+			dataType:'json',
+			success:function(data){
+					console.log(1); 
+					if(data==1)
+						window.location.href="goodsCart.html";
+					else
+						window.location.href="userLogin.html";
+				}
+		});
+	}
+	$("#submit_address").click(function () {
+		addAddress();
+	});
+	
+	$("#update_address").click(function () {
+		updateAddress();
+	});
+	$("#update_pwd").click(function () {
+		updatePwd();
+	});
+
+	function showAddAddress(){
+		$("#myModalLabel").text("新增地址");
+ 		$("#add_name").val('');
+		$("#add_phone").val('');
+		$("#add_address").val('');
+		$("#myModal").modal();
+		$("#submit_address").show();
+		$("#update_address").hide();
+	}
+	function addAddress(){
+		params={};
+		params.name = $("#add_name").val();
+		params.phone = $("#add_phone").val();
+		params.address = $("#add_address").val();
+		if(params.name==''){
+			alert("收货人姓名不能为空！");
+		}else if(!isPoneAvailable(params.phone)){
+			alert("手机号码格式不正确！");
+		}else if(params.address==''){
+			alert("收货地址不能为空！");
+		}else{
+		 	$.ajax({
+				type:'post',
+				url:'addAddress.action',
+				data:params,
+				dataType:'json',
+				success:function(data){
+						alert("添加成功！");
+						window.location.reload();
+					}
+			});	
+		}
+	}
+	function showUpdateAddress(obj){
+		$("#myModalLabel").text("修改地址");
+		$("#address_id").val($(obj).parent().parent().attr("addressId"));
+ 		$("#add_name").val($(obj).parent().parent().find("div").eq(2).html());
+		$("#add_phone").val($(obj).parent().parent().find("div").eq(5).html());
+		$("#add_address").val($(obj).parent().parent().find("div").eq(8).html());
+		$("#myModal").modal();
+		$("#submit_address").hide();
+		$("#update_address").show();
+	}
+	function updateAddress(){
+		params={};
+		params.addressId = $("#address_id").val();
+		params.name = $("#add_name").val();
+		params.phone = $("#add_phone").val();
+		params.address = $("#add_address").val();
+		console.log(params);
+		if(!isPoneAvailable(params.phone)){
+			alert("手机号码格式不正确！");
+		}else {
+	 	 	$.ajax({
+				type:'post',
+				url:'updateAddress.action',
+				data:params,
+				dataType:'json',
+				success:function(data){
+						alert("修改成功！");
+						window.location.reload();
+					}
+			}); 
+		}
+	}
+	function deleteAddress(obj){
+		addressId = $(obj).parent().parent().attr("addressId");
+ 	 	$.ajax({
+			type:'post',
+			url:'deleteAddress.action',
+			data:{addressId:addressId},
+			dataType:'json',
+			success:function(data){
+					alert("删除成功！");
+					window.location.reload();
+				}
+		}); 
+	}
+	function showUpdatePwd(){
+		$("#myPwd").modal();
+	}
+	function updatePwd(){
+		var oldPwd = $("#old_pwd").val();
+		var newPwd = $("#new_pwd").val();
+		var againPwd = $("#again_pwd").val();
+		if(oldPwd==''){
+			alert("请输入旧密码！");
+			return false;
+		}
+		if(newPwd!=againPwd){
+			alert("两次密码不一致！");
+			return false;
+		}else{
+	 	 	$.ajax({
+				type:'post',
+				url:'updatePwd.action',
+				data:{oldPwd:oldPwd,newPwd:newPwd},
+				dataType:'json',
+				success:function(data){
+						if(data==2){
+							alert("旧密码输入错误！");
+						}else{
+							alert("密码修改成功！请重新登录！");
+							window.location.href="userLogin.html";
+						}
+					}
+			}); 
+		}
+	}
+	function showCart(){
+	 	$.ajax({
+			type:'post',
+			url:'userNameExist.action',
+			dataType:'json',
+			success:function(data){
+					console.log(1); 
+					if(data==1)
+						window.location.href="goodsCart.html";
+					else
+						window.location.href="userLogin.html";
+				}
+		});
+	}
+	function isPoneAvailable(str) {  
+        var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;  
+        if (!myreg.test(str)) {  
+            return false;  
+        } else {  
+            return true;  
+        }  
+    }  
+</script>
+</body>
+</html>

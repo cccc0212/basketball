@@ -1,0 +1,225 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- font CSS -->
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+ <!-- js-->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script src="js/modernizr.custom.js"></script>
+
+<!--//webfonts--> 
+<!--animate-->
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="js/wow.min.js"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--//end-animate-->
+
+
+<!-- Metis Menu -->
+<script src="js/metisMenu.min.js"></script>
+<script src="js/custom.js"></script>
+<link href="css/custom.css" rel="stylesheet">
+<!--//Metis Menu -->
+</head> 
+<body class="cbp-spmenu-push">
+	<div class="main-content">
+		<!--left-fixed -navigation-->
+		<div class=" sidebar" role="navigation">
+            <div class="navbar-collapse">
+				<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+					<ul class="nav" id="side-menu">
+						<li>
+							<a href="index.html" class="active"><i class="fa fa-home nav_icon"></i>主页</a>
+						</li>
+						<li>
+							<a href="#"><i class="fa fa-book nav_icon"></i>俱乐部与球员管理<span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse">
+
+								<li  >
+									<a href="allClub.action" target="myframe">俱乐部信息</a>
+					            </li>
+					            <li  >
+					                <a href="getClubId.action" target="myframe">添加俱乐部</a>
+					            </li>
+					            <li  >
+					              <a href="allPlayer.action" target="myframe">球员信息</a>
+					            </li>
+					            <li  >
+					              <a href="addPlayerId.action" target="myframe">添加球员信息</a>
+					            </li>
+							</ul>
+							<!-- /nav-second-level -->
+						</li>
+						<li class="">
+							<a href="#"><i class="fa fa-book nav_icon"></i>赛事管理 <span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse">
+								<li >
+									<a  href="allGame.action" target="myframe">赛事信息</a>
+					            </li>
+					            <li >
+					              	<a  href="game.action" target="myframe">添加赛事信息</a>
+					            </li>
+							</ul>
+							<!-- /nav-second-level -->
+						</li>
+						<li class="">
+							<a href="#"><i class="fa fa-book nav_icon"></i>用户管理 <span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse">
+								<li >
+									<a  href="allUser.action" target="myframe">用户信息</a>
+					            </li>
+					            <li >
+					              	<a  href="addUserId.action" target="myframe">添加用户</a>
+					            </li>
+							</ul>
+							<!-- /nav-second-level -->
+						</li>
+						<li class="">
+							<a href="#"><i class="fa fa-book nav_icon"></i>纪念品管理 <span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse">
+								<li >
+									<a  href="topCategory.action" target="myframe">分类管理</a>
+					            </li>
+								<li >
+									<a  href="allGoods.action" target="myframe">纪念品信息</a>
+					            </li>
+					            <li >
+									<a  href="selectGoodsId.action" target="myframe">添加纪念品</a>
+					            </li>
+					            <li >
+					              	<a  href="allGoodsOrder.action" target="myframe">订单信息</a>
+					            </li>
+							</ul>
+							<!-- /nav-second-level -->
+						</li>
+					</ul>
+					<!-- //sidebar-collapse -->
+				</nav>
+			</div>
+		</div>
+		<!--left-fixed -navigation-->
+		<!-- header-starts -->
+		<div class="sticky-header header-section ">
+			<div class="header-left">
+				<!--toggle button start-->
+				<button id="showLeftPush"><i class="fa fa-bars"></i></button>
+				<!--toggle button end-->
+				<!--logo -->
+				<div class="logo">
+					<a href="index.html">
+						<h1>CBA</h1>
+						<span>basketball</span>
+					</a>
+				</div>
+				<!--//logo-->
+				<div class="clearfix"> </div>
+			</div>
+			<div class="header-right">
+
+				<div class="profile_details">		
+					<ul>
+						<li class="dropdown profile_details_drop">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								<div class="profile_img">	
+									<span class="prfil-img"><img src="images/a.png" alt=""> </span> 
+									<div class="user-name">
+										<p>User</p>
+										<span>Administrator</span>
+									</div>
+									<i class="fa fa-angle-down lnr"></i>
+									<i class="fa fa-angle-up lnr"></i>
+									<div class="clearfix"></div>	
+								</div>	
+							</a>
+							<ul class="dropdown-menu drp-mnu" id="root">
+		
+								<li> <a href="javascript:void(0)" onclick="quit()"><i class="fa fa-sign-out"></i> Logout</a> </li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix"> </div>				
+			</div>
+			<div class="clearfix"> </div>	
+		</div>
+		<!-- //header-ends -->
+		<!-- main content start-->
+		<div id="page-wrapper" >
+			<div class="main-page">
+				<iframe name ="myframe" class="frame" src="allClub.action"></iframe>
+			</div>
+		
+		
+		
+		</div>
+		<!--footer-->
+		<div class="footer">
+		   <p>篮球纪念品后台管理系统</p>
+		</div>
+        <!--//footer-->
+	</div>
+	<!-- Classie -->
+		<script src="js/classie.js"></script>
+		<script type="text/javascript">
+			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+				showLeftPush = document.getElementById( 'showLeftPush' ),
+				body = document.body;
+				
+			showLeftPush.onclick = function() {
+				classie.toggle( this, 'active' );
+				classie.toggle( body, 'cbp-spmenu-push-toright' );
+				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				disableOther( 'showLeftPush' );
+			};
+			
+
+			function disableOther( button ) {
+				if( button !== 'showLeftPush' ) {
+					classie.toggle( showLeftPush, 'disabled' );
+				}
+			}
+			$(document).ready(function(){
+				
+			 	$.ajax({
+					type:'post',
+					url:'managerName.action',
+					dataType:'json',
+					success:function(data){
+								$(".user-name p").html(user);
+					}
+
+				});
+			});
+			function quit(){
+			 	$.ajax({
+					type:'post',
+					url:'quit.action',
+					dataType:'json',
+					success:function(data){
+							window.location.href="login.html";
+					}
+				});
+			}
+		</script>
+	<!--scrolling js-->
+	<script src="js/jquery.nicescroll.js"></script>
+	<script src="js/scripts.js"></script>
+	<!--//scrolling js-->
+	<!-- Bootstrap Core JavaScript -->
+   <script src="js/bootstrap.js"> </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ssm.mapper.ManagerMapper">
+	<select id = "selectByNoAndPassword" resultType = "int">
+		select count(*) from manager where no = #{no} and password = #{password} and delete_state=0
+	</select>
+	<select id = "selectByUsernameAndPassword" resultType = "int">
+		select count(*) from user where uid = #{uid} and password = #{password} and delete_state=0
+	</select>
+</mapper>

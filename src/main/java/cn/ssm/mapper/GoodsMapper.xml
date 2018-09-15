@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ssm.mapper.GoodsMapper">
+<cache type="cn.ssm.cache.RedisCache"/>
+	<select id="selectAllGoodsOrder" resultType = "cn.ssm.po.GoodsOrder">
+		select order_id orderId, buy_id buyId, state,address ,name,phone from orders 
+		<where>
+			delete_state=0
+			<if test="orderId!=null and orderId!=''">
+				 and order_id = #{orderId}
+			</if>
+			<if test="state!=null and state!=''">
+				 and state = #{state}
+			</if>
+		</where>
+	</select>
+	<select id="selectAllGoods" resultType = "cn.ssm.po.Goods">
+		select goods_id id, goods_name name, goods_intro intro ,num, img, price, status from goods 
+		<where>
+			delete_state=0
+			<if test="id!=null and id!=''">
+				and goods_id = #{id}
+			</if>
+			<if test="name!=null and name!=''">
+				and goods_name like '%${name}%'
+			</if>
+			<if test="category!=null and category!=''">
+				and category = #{category}
+			</if>
+			<if test="status!=null and status!=''">
+				and status = #{status}
+			</if>
+		</where>
+	</select>
+	
+	<select id="selectGoodsById" resultType = "cn.ssm.po.Goods">
+		select goods_id id, goods_name name, goods_intro intro ,num, price, status,img,category from goods where goods_id = #{id} and delete_state=0
+	</select>
+	
+	<update id="updateGoods" flushCache="true">
+		update goods set goods_name=#{name}, goods_intro=#{intro},num=#{num},price=#{price},status=#{status},category=#{category}
+		<if test="img!=null and img!=''">
+			,img=#{img} 
+		</if>
+		where goods_id=#{id} and delete_state=0
+	</update>
+	
+	<update id="deleteGoods" flushCache="true">
+		update goods set delete_state=1 where goods_id = #{id} and delete_state=0
+	</update>
+	
+	<select id="selectGoodsOrderById"  resultType = "cn.ssm.po.GoodsOrder">
+		select order_id orderId, buy_id buyId, state , address from orders where order_id = #{id} and delete_state=0
+	</select>
+	
+	<select id="selectGoodsOrderDetailById"  resultType = "cn.ssm.po.OrderDetail">
+		select  id orderId, order_detail.goods_id id,goods_name name, goods_intro intro ,order_detail.num buyNum,price_num priceNum,  price,img from order_detail,goods where id = #{id} and order_detail.goods_id = goods.goods_id and order_detail.delete_state=0 and goods.delete_state=0
+	</select>
+	
+	<update id="updateGoodsOrder" flushCache="true">
+		update orders set state = #{state} ,address = #{address}
+		<if test="state=='已下单'">
+			,create_time=NOW()
+		</if>
+		<if test="state=='已付款'">
+			,pay_time=NOW()
+		</if>
+		<if test="state=='已发货'">
+			,send_time=NOW()
+		</if>
+		<if test="state=='已签收'">
+			,get_time=NOW()
+		</if>
+		<if test="state=='已取消'">
+			,cancel_time=NOW()
+		</if>
+		 where order_id = #{orderId} and delete_state=0
+	</update>
+	
+	<update id="deleteGoodsOrder" flushCache="true">
+		update orders set delete_state=1 where order_id=#{orderId} and delete_state=0
+	</update>
+	
+	<update id="deleteGoodsOrderDetail" flushCache="true">
+		update order_detail set delete_state=1 where id = #{orderId} and delete_state=0
+	</update>
+	
+	<update id="deleteGoodsOrderDetailById" flushCache="true">
+		update order_detail set delete_state=1 where goods_id=#{id} and id=#{orderId} and delete_state=0
+	</update>
+	
+	<select id="selectGoodsId" resultType = "Integer">
+		select goods_id id from goods where delete_state=0 order by goods_id desc limit 1
+	</select>
+	
+	<insert id="addGoods" flushCache="true">
+		insert into goods(goods_id,goods_name,goods_intro,price,status,img,createtime,num,category) values(#{id},#{name},#{intro},#{price},#{status},#{img},#{createtime},#{num},#{category})
+	</insert>
+	<select id="selectTopCategory" resultType="cn.ssm.po.TopCategory">
+		select id, name from top_category where delete_state=0
+	</select>
+	<select id="selectTopCategoryById" resultType="cn.ssm.po.TopCategory">
+		select id, name from top_category where id = #{id} and delete_state=0
+	</select>
+	<select id="selectSecondCategory" resultType="cn.ssm.po.SecondCategory">
+		select id, name from second_category where top_id = #{topId} and delete_state=0
+	</select>
+	<insert id="addCategory" flushCache="true">
+		insert into top_category(name) values(#{name})
+	</insert>
+	<update id="deleteCategory" flushCache="true">
+		update top_category set delete_state=1 where id = #{id} and delete_state=0
+	</update>
+	<update id="deleteSecondCategory" flushCache="true">
+		 update second_category set delete_state=1 where top_id = #{id} and delete_state=0 
+	</update>
+	<update id="deleteSecondCategoryById" flushCache="true">
+		 update second_category set delete_state=1 where id = #{id} and delete_state=0
+	</update>
+	<insert id="addSecondCategory">
+		insert second_category(name, top_id) values(#{name},#{topId})
+	</insert>
+	<insert id="addCart">
+		insert into goods_cart(uid, goods_id, buy_num) values(#{uid}, #{goodsId}, #{buyNum})
+	</insert>
+	<select id="getCart" resultType="cn.ssm.po.GoodsCart">
+		select cart_id cartId, uid, goods_cart.goods_id id, goods.goods_name name, goods.price price, goods.num num,goods.img img,buy_num buyNum from goods_cart,goods where goods_cart.goods_id=goods.goods_id and goods.delete_state=0 and goods_cart.delete_state=0
+	</select>
+	<update id="delCart" flushCache="true">
+		update goods_cart set delete_state=1 where cart_id=#{cartId} and delete_state=0
+	</update>
+	<insert id="addOrder" useGeneratedKeys="true" keyProperty="orderId" keyColumn="order_id" flushCache="true">
+		insert into orders(buy_id,address,name,phone,total_price,create_time) values(#{buyId},#{address},#{name},#{phone},#{totalPrice},NOW()) 
+	</insert>
+	<select id="getNewOrderId" resultType="Integer">
+		select max(order_id) from orders where delete_state=0
+	</select>
+	<insert id="addOrderDetail" flushCache="true">
+		insert into order_detail(id,goods_id,num,price_num) values(#{orderId},#{goodsId},#{num},#{priceNum}) 
+	</insert>
+	<select id="selectGoodsOrderByUid" resultType="cn.ssm.po.GoodsOrder">
+		select order_id orderId, total_price totalPrice, state ,name,phone,address,create_time createTime from orders where buy_id=#{uid} and delete_state=0
+		<if test="state!='' and state!=null">
+			and state=#{state}
+		</if>
+		order by create_time desc
+	</select>
+	<update id="updateGoodsCart" flushCache="true">
+		update goods_cart set buy_num=#{num} where cart_id=#{cartId} and delete_state=0
+	</update>
+	<update id="updateConfirmOrders" flushCache="true">
+		update orders set state=#{state} , get_time=NOW() where order_id=#{orderId} and delete_state=0
+	</update>
+	<update id="updateCancelOrders" flushCache="true">
+		update orders set state=#{state} , cancel_time=NOW() where order_id=#{orderId} and delete_state=0
+	</update>
+	<select id="getOrderPay" resultType="cn.ssm.po.GoodsOrder">
+		select total_price totalPrice from orders where order_id=#{orderId} and delete_state=0
+	</select>
+	<update id="updatePayOrder" flushCache="true">
+		update orders set state=#{state} , pay_time=NOW() where order_id=#{orderId} and delete_state=0
+	</update>
+	<select id="selectOrders" resultType="cn.ssm.po.GoodsOrder">
+		select order_id orderId, state, total_price totalPrice, name, phone, address,create_time createTime, pay_time payTime, send_time sendTime, get_time getTime, cancel_time cancelTime from orders where order_id = #{orderId} and delete_state=0
+	</select>
+	<update id="updateGoodsNumber" flushCache="true">
+		update goods set num=num-#{number} where goods_id=#{id} and delete_state=0
+	</update>
+	<update id="updateGoodsCategory" flushCache="true">
+		update goods set category=1024 where category=#{category} and delete_state=0
+	</update>
+	<update id="updateGoodsCategoryByTop" flushCache="true">
+		update goods, second_category  set category=1024  where second_category.id=goods.category and top_id=#{topId}
+	</update>
+	<select id="getGooodsNum" resultType="Integer">
+		select num from goods where goods_id=#{goodsId} and delete_state=0
+	</select>
+	<update id="updateGoodsStatus" flushCache="true">
+		update goods set status=#{status} where goods_id = #{id} and delete_state=0
+	</update>
+</mapper>

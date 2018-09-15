@@ -1,0 +1,107 @@
+	h2{
+		color: #00559a;
+	}
+	body>.container {
+	    min-height: 600px;
+	    max-width:100%;
+		width:100%;
+	    background-color: #f0f3ef;
+	    margin:0;
+	}
+	.section {
+   		padding: 20px 5%;
+		margin-bottom: 10px;
+	}
+	.row {
+	    font-size: 0;
+	    position: relative;
+	    min-height:768px;
+	    padding-top:20px;
+	}
+	.row>div {
+   		font-size: 14px;
+	}
+	.col-12-6 {
+		width:48%;
+		position: relative!important;
+		display: inline-block;
+    	vertical-align: top;
+    	letter-spacing: normal;
+    	left: 20px;
+	}
+	.thumbnail{
+
+    	margin: 0;
+	
+	}
+	.pdp-cloudZoom-imgBox {
+    	border: 1px solid #d1d3d4;
+    	height: 100%;
+    	width: 100%;
+	}
+	.thumbnail img {
+    	margin-right: auto;
+    	margin-left: auto;
+    	width:100%;
+    	height:100%;
+
+	}
+	img {
+    	vertical-align: middle;
+    	border: 0;
+
+	}
+	.pdp-right {
+    	padding: 0 10%;
+	}
+	.pdp-id {
+    	color: #58595b;
+    	font-size: 12px;
+	}
+	.pdp-right h1 {
+	    margin: 0;
+	    padding: 0 6% 10px 0;
+	    font-size: 24px;
+	    word-break: normal;
+	}
+	.pdp-discount-note {
+	    color: #58595b;
+	    font-size: 15px;
+	    margin-bottom: 24px;
+	}
+	.pdp-mado {
+	    border-top: 1px solid #e0e3e9;
+	    border-bottom: 1px solid #e0e3e9;
+	    padding: 20px 0 25px 0;
+	    width:80%;
+	}
+	.pdp-price {
+	    color: #00559a;
+	    font-size: 24px;
+	}
+	.pdp-addBtn-box {
+	    margin-top: 40px;
+	    width: 345px;
+	}
+	.btn-red{
+	    border-radius: 3px;
+	    border: 0;
+		background-color: #ec003d;
+	    color: #fff;
+	    min-width: 143px;
+	    height: 40px;
+	    line-height: 40px;
+	    padding: 0 10px;
+	    font-size: 12px;
+	    -webkit-box-shadow: none;
+	    box-shadow: none;
+	    -webkit-box-sizing: content-box;
+	    -moz-box-sizing: content-box;
+	    box-sizing: content-box;
+	}
+	.intro{
+		position: relative;
+		top:20px;
+		left:10%;
+		width: 80%;
+	}

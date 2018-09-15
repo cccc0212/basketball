@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ssm.mapper.GameMapper">
+<cache type="cn.ssm.cache.RedisCache"/>
+	<select id = "selectGame" resultType = "cn.ssm.po.Game">
+		select s.id,s.cid, s.oid, s.cscore, s.oscore, s.time, b.name cname,c.gym gym, c.name oname from score s LEFT JOIN club b ON s.cid=b.cid LEFT JOIN club c ON s.oid=c.cid
+		<where>
+			 s.delete_state=0 and  b.delete_state=0 and c.delete_state=0
+			<if test="start!=null and start!=''">
+				and <![CDATA[ s.time >= #{start} ]]>
+			</if>
+			<if test="end!=null and end!=''">
+				and <![CDATA[ s.time < #{end}]]>
+			</if>
+			<if test="id!=null and id!=''">
+				and ( s.cid = #{id} or s.oid = #{id})
+			</if>
+
+		</where>
+		order by s.time asc
+	</select>
+	
+	<select id = "selectGameByClub" resultType = "cn.ssm.po.Game">
+		select s.id,s.cid, s.oid, s.cscore, s.oscore, s.time, b.name cname, c.gym gym, c.name oname from score s LEFT JOIN club b ON s.cid=b.cid LEFT JOIN club c ON s.oid=c.cid
+		<where>
+			s.delete_state=0 and  b.delete_state=0 and c.delete_state=0
+			<if test="start!=null and start!=''">
+				and <![CDATA[ s.time >= #{start} ]]>
+			</if>
+			<if test="end!=null and end!=''">
+				and <![CDATA[ s.time < #{end}]]>
+			</if>
+			<if test="id!=null and id!=''">
+				and ( s.cid = #{id} or s.oid = #{id})
+			</if>
+		</where>
+		order by s.time asc
+	</select>
+	
+	
+	<insert id="insertGame" flushCache="true">
+		insert into score(cid,oid,time) values(#{cid},#{oid},#{time})
+	</insert>
+	
+	<select id="selectGameById" resultType = "cn.ssm.po.Game">
+		select s.id, s.cscore, s.oscore, s.time, b.name cname,c.gym gym,c.name oname from score s LEFT JOIN club b ON s.cid=b.cid LEFT JOIN club c ON s.oid=c.cid
+		where s.id = #{id} and s.delete_state=0 and  b.delete_state=0 and c.delete_state=0
+	</select>
+	<update id="updateGame" flushCache="true">
+		update score set cscore=#{cscore},oscore=#{oscore}, time=#{time} where id = #{id} and delete_state=0
+	</update>
+	<update id="deleteGame" flushCache="true">
+		update score set delete_state=1 where id = #{id} and delete_state=0
+	</update>
+</mapper>

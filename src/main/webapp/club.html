@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="css/main.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap.css" rel="stylesheet" media="screen">
+<link href="css/font-awesome.min.css" rel="stylesheet" media="screen">
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<style type="text/css">
+	table{
+		margin-bottom:0px !important;
+	}
+	.club_body{
+/* 		background: url(images/bg_club.jpg) center 0 no-repeat; */
+		background-color: #f0f3ef;
+ 		padding-bottom:20px; 
+ 		padding-top:20px;
+	}
+	.intro{
+		margin-left: 20%;
+		margin-right: 20%;
+
+	}
+	.club_left{
+		padding-top:20px;
+		padding-left:30px;
+		padding-right:30px;
+		padding-bottom:20px;
+		margin-bottom:20px;
+		background: #fff;
+	}
+	.club_name{
+		display:inline-block;
+		margin-left:30px;
+	}
+</style>
+<script type="text/javascript">
+window.onload=function(){
+	var cid = window.location.href.split("=")[1];
+	var params={};
+	params.cid=cid;
+ 	$.ajax({
+		type:'post',
+		url:'q_club.action',
+		dataType:'json',
+		data:params,
+		success:function(data){
+				var c = eval(data);  
+				showClub(c);
+			}
+	}); 
+	$.ajax({
+		type:'post',
+		url:'q_player.action',
+		dataType:'json',
+		data:params,
+		success:function(data){
+				var d = eval(data);  
+				showPlayer(d);
+			}
+	});
+ 	$.ajax({
+		type:'post',
+		url:'userName.action',
+		dataType:'json',
+		success:function(data){
+				var user = eval(data);  
+				if(user!=null)
+					showUser(user);
+			}
+	});
+}
+Date.prototype.Format = function (fmt) { //author: meizz
+	var o = {
+	"M+": this.getMonth() + 1, //月份
+	"d+": this.getDate(), //日
+	"h+": this.getHours(), //小时
+	"m+": this.getMinutes(), //分
+	"s+": this.getSeconds(), //秒
+	"q+": Math.floor((this.getMonth() + 3) / 3), //季度
+	"S": this.getMilliseconds() //毫秒
+	};
+	if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+	for (var k in o)
+	if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+	return fmt;
+}
+function showPlayer(d){
+	var ss = "yyyy-MM-dd";
+	for ( var i = 0; i < d.length; i++) {  
+		var date = new Date(d[i].birthday);
+        var html = "<tr><td>" + d[i].pid + "</td><td>" + d[i].cname + "</td><td>" + d[i].number + "</td><td>" + d[i].name + "</td><td>" + d[i].location 
+        					+ "</td><td>" + d[i].height + "</td><td>" + d[i].weight + "</td><td>" + d[i].age + "</td><td>"+date.Format(ss)+" </td></tr>";  
+        //通过表体id把显示文本显示到网页中  
+        $("#showPlayer").append(html);  
+    }
+}
+
+function showClub(c){
+	$("#pic").attr("src","../CBA/"+c.logo);
+	$("#club_name").html(c.name)
+	$("#create_time").html(c.birth);
+	$("#create_location").html(c.area);
+	$("#gym").html(c.gym);
+	$("#club_intro").html(c.intro);
+	console.log(c.list[0].time);
+	for ( var i = 0; i < c.list.length; i++) {  
+        var html = "<tr><td>" + c.list[i].time + "</td><td>" + c.list[i].matching + "</td><td>第" + c.list[i].ranking +"名</td></tr>";  
+        //通过表体id把显示文本显示到网页中  
+        $("#showClub").append(html);  
+    }
+	var html="<div id='copyright-wrap'><div id='copyright-content'><div class='copyright-content'><p><em>&copy;</em>2018年著作权 CBA 中国所有权。</p><p><a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>上除去<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>中所特别提及的部分之外，其它任何内容都不得以任何形式被复制、再传播，或篡改。</p><p>进入<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>后，即表示阁下同意遵守<a target='_blank' href='http://china.CBA.com/'>CBA.com/China</a>的<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047968.htm'>隐私政策</a>和<a target='_blank' href='http://CBAchina.qq.com/a/20150623/047888.htm'>使用条款</a>。</p><p>有任何的建议和意见，都欢迎联络我们：<a href='mailto:CBAChinaInfo@CBA.com'>CBAChinaInfo@CBA.com</a></p><p>有关CBA商品授权合作事宜，敬请联系:<a href='mailto:GMGChinaBusinessInquiry@CBA.com'>GMGChinaBusinessInquiry@CBA.com</a></p></div></div></div>"
+	$(".footer").append(html);
+}
+function showUser(user){
+	$(".username").html(user.username);
+	$(".user-menu").empty();
+	var html="<li class='user-info' align='center'><a href='info.html'>个人信息</a></li><li class='user-info' align='center'><a href='order.html'>订单信息</a></li><li class='user-info' align='center'><a href='userLogin.html'>退出</a></li>"
+	$(".user-menu").append(html);
+}
+</script>
+
+</head>
+<body>
+<div class="header">
+	<div class="header-bg"></div>
+	<div class="header-wrap">
+		<div class="header-main">
+			<div class="header-logo">
+				<a href="http://china.CBA.com/" class="link-china"><img src="images/cba-logo_01.png" style="height: 80px;"></a>
+			</div>
+		</div>
+
+		<div class="nav index">
+			<div class="nav-wrap">
+				<ul>
+					<li class="nav-tab nav-index"><a href="main.html" class="no-arrow">首页</a></li>
+					<li id = "team" class="nav-tab nav-teams">
+						<a href="main.html">球队 <span class="glyphicon glyphicon-chevron-down"></span></a>
+						<div class="nav-team">
+							<ul style="padding-left: 0px;">
+								<li class="team-list">
+									<a href="club.html?id=1001" target="_blank" class="label-hornets"><img src="../CBA/images/clubs/1001.png" class="img-logo">北京首钢</a>
+									<a href="club.html?id=1002" target="_blank" class="label-cavaliers"><img src="../CBA/images/clubs/1002.jpg"  class="img-logo">辽宁本钢</a>
+									<a href="club.html?id=1003" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1003.png"  class="img-logo">广东东莞银行</a>
+									<a href="club.html?id=1004" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1004.jpg"  class="img-logo">新疆喀什古城</a>
+									<a href="club.html?id=1005" target="_blank" class="label-raptors"><img src="../CBA/images/clubs/1005.jpg"  class="img-logo">深圳马可波罗</a>
+								</li>
+								<li class="team-list gray" style="background-color:#f5f5f5;">
+									<a href="club.html?id=1006" target="_blank" class="label-hawks"><img src="../CBA/images/clubs/1006.jpg" class="img-logo">浙江广厦控股</a>
+									<a href="club.html?id=1007" target="_blank" class="label-bulls"><img src="../CBA/images/clubs/1007.jpg" class="img-logo">天津滨海云商</a>
+									<a href="club.html?id=1008" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1008.jpg" class="img-logo">上海哔哩哔哩</a>
+									<a href="club.html?id=1009" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1009.jpg" class="img-logo">山东高速</a>
+									<a href="club.html?id=1010" target="_blank" class="label-knicks"><img src="../CBA/images/clubs/1010.png" class="img-logo">福建浔兴SBS</a>
+								</li>
+								<li class="team-list">
+									<a href="club.html?id=1011" target="_blank" class="label-wizards"><img src="../CBA/images/clubs/1011.png" class="img-logo">南京同曦</a>
+									<a href="club.html?id=1012" target="_blank" class="label-pistons"><img src="../CBA/images/clubs/1012.jpg" class="img-logo">四川品胜</a>
+									<a href="club.html?id=1013" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1013.jpg" class="img-logo">浙江稠州银行</a>
+									<a href="club.html?id=1014" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1014.jpg" class="img-logo">九台农商银行</a>
+									<a href="club.html?id=1015" target="_blank" class="label-celtics"><img src="../CBA/images/clubs/1015.png" class="img-logo">广州证券</a>
+								</li>
+								<li class="team-list gray" style="background-color:#f5f5f5;">
+									<a href="club.html?id=1016" target="_blank" class="label-magic"><img src="../CBA/images/clubs/1016.png" class="img-logo">山西汾酒股份</a>
+									<a href="club.html?id=1017" target="_blank" class="label-pacers"><img src="../CBA/images/clubs/1017.png" class="img-logo">八一双鹿电池</a>
+									<a href="club.html?id=1018" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1018.jpg" class="img-logo">青岛国信双星</a>
+									<a href="club.html?id=1019" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1019.jpg" class="img-logo">江苏肯帝亚</a>
+									<a href="club.html?id=1020" target="_blank" class="label-nets"><img src="../CBA/images/clubs/1020.jpg" class="img-logo">北京农商银行</a>
+								</li>
+							</ul>
+						</div>
+					</li>
+					<li class="nav-tab nav-players"><a href="player.html">球员</a></li>
+					<li class="nav-tab nav-schedule"><a href="schedule.html">赛程</a></li>
+					<li class="nav-tab nav-schedule"><a href="main.html">商城</a></li>
+				</ul>
+			</div>
+			<div class="nav-side">
+				<div class="side-cart" onclick="showCart()"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+		        <div class="side-user" id="user-face">
+		            <div class="user-head"><img src="images/user.png" id="user-face"> <div class="username"></div></div>
+		            <ul class="user-menu">
+		                <li class="user-info" align="center">您好~请您登录</li>
+		                <li class="user-login"><button type="button" class="btn btn-primary" style="width:100%;padding: 0px;" onclick="window.location.href='userLogin.html'">登录</button></li>
+		            </ul>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<div class="club_body">
+	<div class="intro">
+		<div class="club_left">
+			<div style="display:inline-block"><img id = "pic"  src="" /></div>
+			<div class="club_name"><h1 id="club_name"></h1></div>
+		</div>
+		<div  class="club_left" >
+			<h2>球队信息</h2>
+			<p style="margin-bottom: 0px;">
+				成立时间：<span id="create_time"></span><br/>
+				成立地点: <span id="create_location"></span><br/>
+				体育馆地点: <span id="gym"></span><br/>
+				球队介绍:<div style="margin-left:50px;padding-bottom: 20px;" id="club_intro"></div>
+			</p>
+		</div>
+		<div  class="club_left ">
+			<h2>球员信息</h2>
+			<table id ="player" class = "table table-hover" id="tab" style="margin-top:50px">
+				<thead>
+					<tr>
+						<th width="80" >球员编号</th>
+						<th>俱乐部名字</th>
+						<th>球衣号码</th>
+						<th>球员姓名</th>
+						<th>位置</th>
+						<th>身高(cm)</th>
+						<th>体重(kg)</th>
+						<th>年龄</th>
+						<th>出生日期</th>
+					</tr>
+				</thead>
+				<tbody id="showPlayer">
+		
+				</tbody>
+			</table>
+		</div>
+		<div  class="club_left">
+			<h2>球队荣誉</h2>
+			<table id="achievement" class="table table-hover"  id="tab">
+				<thead>
+					<tr>
+						<th width=20% >时间</th>
+						<th width=50%>赛事</th>
+						<th width=30%>排名</th>
+					</tr>
+				</thead>
+				<tbody id="showClub">
+		
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<div class="footer">
+
+
+</div>
+<script type="text/javascript">
+
+	$("#team").hover(
+			function(){$(this).find("div").show();},function(){$(this).find("div").hide();}
+		);
+	$("#user-face").hover(
+			function(){$(this).find("ul").show();},function(){$(this).find("ul").hide();}
+		);
+	function showCart(){
+	 	$.ajax({
+			type:'post',
+			url:'userNameExist.action',
+			dataType:'json',
+			success:function(data){
+					console.log(1); 
+					if(data==1)
+						window.location.href="goodsCart.html";
+					else
+						window.location.href="userLogin.html";
+				}
+		});
+	}
+</script>
+</body>
+</html>
